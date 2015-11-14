@@ -14,7 +14,7 @@ Package.onUse(function(api) {
     api.add_files([
         'lib/client/templates/chat_page.html',
         'lib/client/templates/chat_link.html',
-        'lib/client/routes.js',
+        'lib/routes.js',
         'lib/client/chat.js'
     ], ['client']);
 
