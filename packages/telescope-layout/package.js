@@ -14,6 +14,11 @@ Package.onUse(function (api) {
     'telescope:i18n@0.25.5'
   ]);
 
-  api.addFiles('lib/client/custom.scss', 'client');
-  api.addFiles('lib/client/scripts/custom_icons.js', 'client');
+  api.addFiles([
+
+    'lib/client/scss/modules/_layout.scss',
+    'lib/client/scss/partials/_grid.scss',
+    'lib/client/scripts/custom_icons.js',
+    'lib/client/scss/screen.scss'
+  ], ['client']);
 });
