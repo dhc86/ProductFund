@@ -17,6 +17,8 @@ Package.onUse(function (api) {
   api.addFiles([
 
     'lib/client/scss/modules/_layout.scss',
+    'lib/client/scss/modules/_nav.scss',
+    'lib/client/scss/modules/_search.scss',
     'lib/client/scss/partials/_grid.scss',
     'lib/client/scripts/custom_icons.js',
     'lib/client/scss/screen.scss'
