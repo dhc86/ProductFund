@@ -49,6 +49,8 @@ telescope-custom
 random
 upvote-payment
 twbs:bootstrap
+telescope-custom-post-form
+mrgalaxy:stripe
 telescope-layout
 telescope-custom-chat
 coffeescript
