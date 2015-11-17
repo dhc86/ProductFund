@@ -1,6 +1,7 @@
 if (Meteor.isClient) {
     console.log('hi');
     Meteor.subscribe("chat_messages");
+
     Template.chat_messages.helpers({
         chat_messages: function() {
             return chatMessages.find();
@@ -22,6 +23,15 @@ if (Meteor.isClient) {
                         time: Date.now(),
                     }
                     Meteor.call("newChatMessage", chat_message_data);
+
+                    // autoscroll
+                    var height = 0;
+                    $('.chat-room').children().each(function(i, value){
+                        height += parseInt($(this).height());
+                    });
+                    height += '';
+                    $('div.chat-room').animate({scrollTop: height});
+
                     document.getElementById('chat_message').value = '';
                     // chat_message.value = '';
                 }
@@ -33,12 +43,29 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 
     Meteor.startup(function () {
-       chatMessages.remove({});
+        chatMessages.remove({});
+
+        Meteor.settings.public.extraEmoticons = [
+            {
+                "image": "http://donburks.com/public/images/don.png",
+                "replacements": [":don"]
+            },
+            {
+                "image": "/path/to/something.png",
+                "replacements": [":somethingcool:"]
+            },
+            {
+                "image": "https://static-cdn.jtvnw.net/jtv_user_pictures/emoticon-2867-src-f02f9d40f66f0840-28x28.png",
+                "replacements": [":kappa"]
+            }
+
+        ]
+
     });
 
     console.log('server up');
     Meteor.publish('chat_messages', function() {
-        return chatMessages.find();
+        return chatMessages.find({}, {sort: {ts: -1}});
     });
 }
 

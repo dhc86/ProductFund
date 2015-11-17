@@ -1,5 +1,5 @@
 <template name="chat_messages">
 {{#each chat_messages}}
-<strong>{{name}}:</strong> {{chat_message}}<br>
+<strong>{{name}}:</strong> {{{parseEmoticons chat_message}}}<br>
 {{/each}}
 </template>
