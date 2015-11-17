@@ -1,7 +1,10 @@
 <template name="custom_submit_button">
   <div class="submit-button {{moduleClass}}">
   {{#if currentUser}}
-    <a id="submit" class="submit btn btn-primary" href="{{pathFor 'postSubmit'}}">{{_ "post"}}</a>
+    <a id="submit" class="submit btn btn-primary" href="{{pathFor 'postSubmit'}}"><button>Post your Product</button></a>
   {{/if}}
   </div>
+
 </template>
+
+
