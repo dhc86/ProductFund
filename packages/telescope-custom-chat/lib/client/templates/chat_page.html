@@ -1,0 +1,34 @@
+<template name="chat_page">
+
+<!-- PURELY temporary style section to toy around with -->
+<style>
+    .chat-room {
+        height: 300px;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-y: auto;
+        background-color: lightblue;
+    }
+
+    img.meteoremoticon {
+        max-width: 30px;
+        max-height: 30px;
+    }
+
+
+</style>
+
+<div class="grid grid-module">
+    <h2>Chat Room</h2>
+    {{> chat_welcome }}
+</div>
+
+<div class="grid grid-module chat-room">
+    {{> chat_messages}}
+</div>
+
+<div class="grid grid-module">
+    {{> chat_input}}
+</div>
+</template>
+
