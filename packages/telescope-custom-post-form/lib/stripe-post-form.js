@@ -12,7 +12,7 @@
 
  
 if (Meteor.isClient) {
-  Template.custom_submit_button.events({
+  Template.post_submit.events({
     'click button': function(e) {
       e.preventDefault();
 

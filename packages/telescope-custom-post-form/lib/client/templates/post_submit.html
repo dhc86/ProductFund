@@ -8,13 +8,46 @@
         <li>You can generate a Thumbnail by just providing your website url.</li>
         <li>OR, you can enter your product information in the following form.</li>
       </ul>
-      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}}
+      
+
+  <form class="main form" id="submitPostForm" template="bootstrap3-horizontal" meteormethod="submitPost" input-col-class="controls" type="method">
+    <div>
+      <label class="control-label" for="title">Enter name of Product</label>
+      <div>
+          <input name="title" id="title" type="text" value="" placeholder="Name
+ your post"/>
+      </div>
+    </div>
+    <div>
+      <label class="control-label" for="url">Enter URL of Product</label>
+      <div class="controls">
+        <input name="url" id="url" type="text" value="" placeholder="Your URL" />
+      </div>
+    </div>
+    <div>
+      <label class="control-label" for="body">Enter small description of the product</label>
+      <div class="controls">
+          <input name="body" id="url" type="text" value="" placeholder="Your product description here" />
+      </div>
+    </div>
+    <input type="submit" value="Submit" />
+  </form>
+
+      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method"}}
+
+<!-- 
+      complete quickform
+      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}} -->
+
+      <button>Stripe button</button>
+
+
 
       <h3>There is a $10 charge to post your product. By clicking submit you will be redirected to paypal for payment</h3>
       <p>Note: Every product starts with $0 dollars donated. When donations take place, it will automatically increase!</p>
 
   <!-- this button is just a demo -->
-    <form action="" method="POST">
+  <!--   <form action="" method="POST">
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_GpmbjLyT5iOAfAPK7zT7DkF1"
@@ -24,7 +57,7 @@
         data-image="/128x128.png"
         data-locale="auto">
       </script>
-    </form>
+    </form> -->
 
 
 

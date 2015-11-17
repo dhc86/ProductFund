@@ -47,8 +47,12 @@ telescope:update-prompt
 # my-custom-package
 telescope-custom
 
+
 telescope-custom-post-form
 mrgalaxy:stripe
+
+
+telescope-layout
 
 telescope-custom-chat
 coffeescript
