@@ -12,7 +12,13 @@ Package.onUse(function(api) {
 
   api.addFiles(['lib/client/templates/custom_post_vote.html',
                'lib/client/templates/custom_post_vote.js',
-               'lib/client/custom_template.js'], 'client');
+               'lib/client/custom_template.js',
+               'lib/client/templates/donation_modal.html',
+               'lib/client/templates/donation_modal.js' 
+               ], 'client');
+
+
+  api.addFiles(['lib/custom_module.js'
+  ],['client', 'server']);
+
 });
-
-
