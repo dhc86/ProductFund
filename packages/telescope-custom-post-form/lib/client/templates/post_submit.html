@@ -1,0 +1,34 @@
+<template name="custom_post_submit">
+<h2>Please give us your product information:</h2>
+  <div class="form-page post-submit">
+ 
+    <div class="grid grid-module">
+    <h3>Fill up the following form by following these two options:</h3>
+      <ul>
+        <li>You can generate a Thumbnail by just providing your website url.</li>
+        <li>OR, you can enter your product information in the following form.</li>
+      </ul>
+      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}}
+
+      <h3>There is a $10 charge to post your product. By clicking submit you will be redirected to paypal for payment</h3>
+      <p>Note: Every product starts with $0 dollars donated. When donations take place, it will automatically increase!</p>
+
+  <!-- this button is just a demo -->
+    <form action="" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_GpmbjLyT5iOAfAPK7zT7DkF1"
+        data-amount="2000"
+        data-name="Demo Site"
+        data-description="2 widgets ($20.00)"
+        data-image="/128x128.png"
+        data-locale="auto">
+      </script>
+    </form>
+
+
+
+
+    </div>
+  </div>
+</template>

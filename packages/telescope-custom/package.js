@@ -5,5 +5,7 @@ Package.describe({
 });
 
 Package.onUse(function (api) {  
+
+
   api.addFiles('custom.css', 'client');
 });
