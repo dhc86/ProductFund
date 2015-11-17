@@ -1,0 +1,1 @@
+Template.custom_post_vote.replaces("post_vote");
