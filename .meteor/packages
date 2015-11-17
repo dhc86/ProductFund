@@ -46,3 +46,6 @@ telescope:update-prompt
 
 # my-custom-package
 telescope-custom
+telescope-custom-chat
+coffeescript
+mattimo:emoticons
