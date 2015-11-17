@@ -16,11 +16,25 @@ Package.onUse(function (api) {
 
   api.addFiles([
 
+    // modules
     'lib/client/scss/modules/_layout.scss',
     'lib/client/scss/modules/_nav.scss',
     'lib/client/scss/modules/_search.scss',
+    'lib/client/scss/modules/_footer.scss',
+    'lib/client/scss/modules/_posts.scss',
+
+    // partials
     'lib/client/scss/partials/_grid.scss',
+    'lib/client/scss/partials/_colors.scss',
+    'lib/client/scss/partials/_typography.scss',
+
+    // customizations
     'lib/client/scripts/custom_icons.js',
+
+    // overrides
+    'lib/client/templates/custom_post_content.html',
+
+    // screen
     'lib/client/scss/screen.scss'
   ], ['client']);
 });
