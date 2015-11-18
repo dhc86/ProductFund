@@ -5,8 +5,7 @@
     <div class="grid grid-module">
     <h3>Fill up the following form by following these two options:</h3>
       <ul>
-        <li>You can generate a Thumbnail by just providing your website url.</li>
-        <li>OR, you can enter your product information in the following form.</li>
+        <li>You can generate a Thumbnail by just providing your website url AND/OR you can enter your product information in the following form.</li>
       </ul>
       
 
@@ -15,20 +14,26 @@
       {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method"}}
  -->
 
-{{#autoForm collection="Posts" id="submitPostForm"  input-col-class="controls" type="method"}}
+{{#autoForm collection="Posts" id="submitPostForm" meteormethod="submitPost"  input-col-class="controls" type="method"}}
     <fieldset>
       <legend>Enter your Product info</legend>
       {{> afQuickField name='title'}}
       {{> afQuickField name='url'}}
       {{> afQuickField name='body'}}
+      <p>Enter category to add it in the right place!</p>
+      {{> afQuickField name='categories'}}
+      <p>Note: Every product starts with $0 dollars donated. When donations take place, it will automatically increase!</p>
+      {{> afQuickField name='Donations'}}
       <p>Please make sure you have a Stripe account <a href="https://dashboard.stripe.com/register">click here</a></p>
+      <p>It's important to provide a valid Stripe key so donations can be  transferred to your account.</p>
       {{> afQuickField name='stripe_key'}}
+
     </fieldset>
     <div>
       <button id="special-stripe-button">Proceed Payment</button>
-    {{#if succeeded}}
+    <!-- {{#if succeeded}} -->
       <button type="method" meteormethod="submitPost" class="btn btn-primary">Post my Product</button>
-        {{/if}}
+        <!-- {{/if}} -->
     </div>
 
   {{/autoForm}}
@@ -38,7 +43,7 @@
 
 
 <!--       complete quickform -->
-     <!--  {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}} -->
+   <!--    {{> quickForm collection="Posts" id="submitPostForm"  input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}} -->
 
       <!-- <button id="special-stripe-button">Stripe button</button> -->
 
