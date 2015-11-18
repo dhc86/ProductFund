@@ -1,6 +1,6 @@
 .top-nav {
     .header {
-        height: 180px;
+        height: 130px;
         @include small {
             height: 60px;
         }
@@ -45,11 +45,5 @@
                 color: black;
             }
         }
-        // .logo-image img {
-        //     @include small {
-        //         height: 80%;
-        //         width: 80%;
-        //     }
-        // }
     }
 }

@@ -33,6 +33,7 @@ Package.onUse(function (api) {
 
     // overrides
     'lib/client/templates/custom_post_content.html',
+    'lib/client/templates/custom_post_content.js',
 
     // screen
     'lib/client/scss/screen.scss'
