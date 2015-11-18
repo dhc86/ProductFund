@@ -215,6 +215,11 @@
     }
   }
 }
+
+.post-live.postComponents-module.post-module {
+  position: absolute;
+  right: 10px;
+}
 // .post-meta {
 //   margin-bottom: 20px;
 //   color: white;
@@ -274,7 +279,7 @@
 .post-category {
   display: block;
   font-size: 9px;
-  font-weight: normal !important;
+  font-weight: normal !important; //remove later
   color: white !important;
   background: deepskyblue;
   text-transform: uppercase;

@@ -39,6 +39,9 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_content.html',
     'lib/client/templates/custom_post_content.js',
 
+    //templates
+    'lib/client/templates/post_live.html',
+
     // screen
     'lib/client/scss/screen.scss'
   ], ['client']);
