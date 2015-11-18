@@ -15,6 +15,10 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
+    'lib/custom_modules.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
 
     // modules
     'lib/client/scss/modules/_layout.scss',

@@ -1,21 +1,11 @@
 if (Meteor.isClient) {
-Template.post_content.helpers({
-  //var counter = $('div.counter');
-  counter_thingy: function() {
-    var post = this;
-    $('.counter').each(function () {
-    var $this = $(this);
-
-    jQuery({ Counter: post.upvotes }).animate({ Counter: $this.text() }, {
-      duration: 3000,
-      easing: 'swing',
-      step: function () {
-        $this.text((this.Counter).toFixed(2));
-      }
-    });
+  Template.post_content.helpers({
+    //var counter = $('div.counter');
+    counter_thingy: function() {
+      var post = this;
+      return post.upvotes;
+    }
   });
-  }
-});
 }
 
 
