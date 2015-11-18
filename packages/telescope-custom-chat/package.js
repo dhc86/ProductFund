@@ -17,7 +17,13 @@ Package.onUse(function(api) {
         'lib/client/templates/chat_link.html',
         'lib/client/templates/chat_welcome.html',
         'lib/client/templates/chat_input.html',
-        'lib/client/templates/chat_messages.html'
+        'lib/client/templates/chat_messages.html',
+    ], ['client']);
+
+    api.addAssets([
+        'lib/client/assets/emoticon-don.png',
+        'lib/client/assets/emoticon-mug.png',
+        'lib/client/assets/emoticon-kappa.png'
     ], ['client']);
 
     api.add_files([
@@ -27,5 +33,6 @@ Package.onUse(function(api) {
     ], ["client", "server"]);
 
     api.export('chatMessages');
+    api.export('chatRooms');
 
 });
