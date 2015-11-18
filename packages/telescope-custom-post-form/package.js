@@ -10,6 +10,10 @@ Package.onUse(function (api) {
         'telescope:posts@0.25.5'
     ]);
 
+    api.addFiles([
+    'lib/add_to_schema.js'], 
+    ['client', 'server']);
+
   api.addFiles([
     'lib/client/templates/submit_button.html',
     'lib/client/templates/post_submit.html',

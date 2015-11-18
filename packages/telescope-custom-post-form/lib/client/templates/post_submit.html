@@ -15,11 +15,32 @@
       {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method"}}
  -->
 
+{{#autoForm collection="Posts" id="submitPostForm"  input-col-class="controls" type="method"}}
+    <fieldset>
+      <legend>Enter your Product info</legend>
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='url'}}
+      {{> afQuickField name='body'}}
+      <p>Please make sure you have a Stripe account <a href="https://dashboard.stripe.com/register">click here</a></p>
+      {{> afQuickField name='stripe_key'}}
+    </fieldset>
+    <div>
+      <button id="special-stripe-button">Proceed Payment</button>
+    {{#if succeeded}}
+      <button type="method" meteormethod="submitPost" class="btn btn-primary">Post my Product</button>
+        {{/if}}
+    </div>
+
+  {{/autoForm}}
+
+
+
+
 
 <!--       complete quickform -->
-      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}}
+     <!--  {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}} -->
 
-      <button id="special-stripe-button">Stripe button</button>
+      <!-- <button id="special-stripe-button">Stripe button</button> -->
 
 
 
