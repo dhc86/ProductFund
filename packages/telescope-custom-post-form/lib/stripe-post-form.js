@@ -13,7 +13,7 @@
  
 if (Meteor.isClient) {
   Template.post_submit.events({
-    'click button': function(e) {
+    'click #special-stripe-button': function(e) {
       e.preventDefault();
 
       StripeCheckout.open({
