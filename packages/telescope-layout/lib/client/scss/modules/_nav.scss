@@ -38,9 +38,9 @@
             text-transform: uppercase;
             text-shadow: -1px -1px rgba(0, 0, 0, 0.33);
             // font-family: "Open Sans";
-            @include medium-large {
-                font-size: 28px;
-            }
+            // @include medium-large {
+            //     font-size: 28px;
+            // }
             a {
                 color: black;
             }
