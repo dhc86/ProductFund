@@ -39,11 +39,16 @@ Package.onUse(function (api) {
     // overrides
     'lib/client/templates/custom_post_content.html',
     'lib/client/templates/custom_post_content.js',
+    'lib/client/templates/custom_header.html',
 
     //templates
     'lib/client/templates/post_live.html',
 
     // screen
     'lib/client/scss/screen.scss'
+  ], ['client']);
+
+    api.addAssets([
+    'public/videos/test.webm'
   ], ['client']);
 });

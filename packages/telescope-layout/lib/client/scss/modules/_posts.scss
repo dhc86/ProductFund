@@ -13,12 +13,22 @@
     padding: 11px 10px 11px 0px;
   }
 }
-.post-list-title, .page-title{
-    display: none;
+
+
+
+// ---------------- thumnail ------------------- //
+.post-thumbnail-link {
+  width: 200px;
+  height: 120px;
 }
 
-
 // -------------------------------- post content --------------------------------- //
+
+.fa-fw {
+  width: 30px;
+  height: 30px;
+}
+
 .post-heading {
   margin-bottom: 0px;
   line-height: 1.1;
@@ -27,28 +37,29 @@
     line-height: 1.2;
   }
   @include medium {
-    margin-top: 40px;
+    // margin-top: 10px;
   }
   @include large {
-    margin-top: 50px;
+    // margin-top: 20px;
   }
   .post-title {
-    color: white;
-    font-weight: 400;
+    color: black;
+    font-weight: 300;
     font-size: 15px;
-    text-shadow: 1px 1px 1px rgba(21, 21, 21, 0.7);
+    font-family: "Open Sans";
+    // text-shadow: 1px 1px 1px rgba(21, 21, 21, 0.7);
     @include medium {
-      font-size: 27px;
+      font-size: 25px;
     }
     @include large {
-      font-size: 35px;
+      font-size: 30px;
     }
     @include medium-large {
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1;
     }
     &:visited {
-      color: white;
+      color: black;
     }
   }
 }
@@ -112,6 +123,5 @@
     }
 }
 
-// ---------------- thumnail ------------------- //
 
 
