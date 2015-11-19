@@ -48,11 +48,12 @@ telescope:update-prompt
 telescope-custom
 random
 twbs:bootstrap
-telescope-custom-post-form
 mrgalaxy:stripe
 telescope-layout
 telescope-custom-chat
 coffeescript
 mattimo:emoticons
-
 upvote-payment
+
+telescope-custom-post-form
+

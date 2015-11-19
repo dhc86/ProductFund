@@ -6,22 +6,27 @@ Package.describe({
 
 Package.onUse(function (api) {  
   api.use([
-        'telescope:lib@0.25.5'
+        'telescope:lib@0.25.5',
+        'telescope:posts@0.25.5'
     ]);
 
+    api.addFiles([
+    'lib/add_to_schema.js'], 
+    ['client', 'server']);
+
   api.addFiles([
-    'lib/client/templates/post_submit.html',
     'lib/client/templates/submit_button.html',
-    'lib/client/templates/post_submit.js'],
+    'lib/client/templates/post_submit.html',
+    'lib/client/templates/submit_form.html'],
     ['client']);
 
   api.addFiles([
-    'lib/stripe-post-form.js'],
+    'lib/stripe-post-form.js',
+    'lib/submit_form.js'],
     ['client','server']);
 
   // api.addFiles([
-  //   'lib/server/posts.js',
-  //   'lib/config.js'],
+  //   'lib/server/posts.js'],
   //   ['server']);
 
 api.export('Posts');
