@@ -13,7 +13,7 @@ if (Meteor.isClient) {
     Template.chat_messages.rendered = function() {
         var scroll_down = function() {
             // autoscroll
-            var chat = $('div.chat-room');
+            var chat = $('div#chat-room');
             // do not scroll if hovering on chat
             var chatHover = chat.is(":hover");
             if (!chatHover) {
