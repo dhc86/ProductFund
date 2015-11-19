@@ -4,7 +4,7 @@ Posts.addField([
     fieldSchema: {
       type: String,
       optional: false,
-      editableBy: ["admin"]
+      editableBy: ["member","admin"]
     }
   },
  {
@@ -14,12 +14,12 @@ Posts.addField([
     defaultValue: 0,
     editableBy: ["member", "admin"]
   }
-},
- {
-  fieldName: 'payment_charge_id',
-  fieldSchema: {
-    type: String,
-    optional: false
-  }
 }
+//  {
+//   fieldName: 'payment_charge_id',
+//   fieldSchema: {
+//     type: String,
+//     optional: false
+//   }
+// }
 ]);
