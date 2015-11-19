@@ -1,0 +1,22 @@
+.chat-room {
+    height: 300px;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-y: auto;
+    background-color: lightblue;
+    text-align: left;
+    padding-bottom: 0px;
+}
+
+img.meteoremoticon {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.chat-input {
+  padding: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

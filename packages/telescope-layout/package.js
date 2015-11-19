@@ -26,6 +26,7 @@ Package.onUse(function (api) {
     'lib/client/scss/modules/_search.scss',
     'lib/client/scss/modules/_footer.scss',
     'lib/client/scss/modules/_posts.scss',
+    'lib/client/scss/modules/_chat.scss',
 
     // partials
     'lib/client/scss/partials/_grid.scss',
