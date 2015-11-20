@@ -40,8 +40,9 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_content.html',
     'lib/client/templates/custom_post_content.js',
     'lib/client/templates/custom_header.html',
+    'lib/client/templates/custom_post_thumbnail.html',
 
-    //templates
+    // new templates
     'lib/client/templates/post_live.html',
 
     // screen
@@ -49,6 +50,7 @@ Package.onUse(function (api) {
   ], ['client']);
 
     api.addAssets([
-    'public/videos/test.webm'
+    'public/videos/test.webm',
+    'public/img/placeholderDon.png'
   ], ['client']);
 });
