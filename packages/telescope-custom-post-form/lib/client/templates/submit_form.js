@@ -10,7 +10,7 @@ url: $(e.target).find('[name=url]').val(),
 body: $(e.target).find('[name=body]').val(),
 stripe_id: $(e.target).find('[name=stripe_id]').val()
 };
-debugger
+
 Meteor.call("submitPost", post);
 //post._id = Posts.insert(post);
     Router.go('/', post);

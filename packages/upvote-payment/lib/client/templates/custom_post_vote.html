@@ -5,6 +5,7 @@
         {{{icon "upvote"}}}
         <span class="sr-only">{{_ "upvote_"}}</span>
       </a>
+      {{>donationModal}}  
       {{#if enableDownvotes}}
         <a class="vote-action downvote-link" href="#" title="{{_ "downvote_"}}">
           {{{icon "downvote"}}}
@@ -12,6 +13,5 @@
         </a>
       {{/if}}
     </div>    
-  </div>
-    {{>donationModal}}
+  </div>    
 </template>
