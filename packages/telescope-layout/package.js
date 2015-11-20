@@ -41,6 +41,8 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_content.js',
     'lib/client/templates/custom_header.html',
     'lib/client/templates/custom_post_thumbnail.html',
+    'lib/client/templates/custom_logo.html',
+    'lib/client/templates/custom_logo.js',
 
     // new templates
     'lib/client/templates/post_live.html',
@@ -50,7 +52,7 @@ Package.onUse(function (api) {
   ], ['client']);
 
     api.addAssets([
-    'public/videos/test.webm',
+    'public/videos/test.mp4',
     'public/img/placeholderDon.png'
   ], ['client']);
 });
