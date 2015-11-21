@@ -43,9 +43,11 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_thumbnail.html',
     'lib/client/templates/custom_logo.html',
     'lib/client/templates/custom_logo.js',
+    'lib/client/templates/custom_post_info.html',
 
     // new templates
     'lib/client/templates/post_live.html',
+    'lib/client/templates/post_description.html',
 
     // screen
     'lib/client/scss/screen.scss'

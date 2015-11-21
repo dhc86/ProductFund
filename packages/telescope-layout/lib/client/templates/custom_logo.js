@@ -2,7 +2,8 @@ Template.logo.helpers({
   logoUrl: function(){
     return Settings.get("logoUrl");
   },
-
+  
+  // Add total counter
   totalDonation: function() {
     var collection = 0;
     var posts = Posts.find().fetch();

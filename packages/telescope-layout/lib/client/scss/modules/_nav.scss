@@ -39,14 +39,15 @@
             a {
                 color: white;
             }
+            .total-donation {
+                color: red;
+                font-weight: bold;
+            }
         }
     }
 }
 
-.total-donation {
-    
-    color: red;
-}
+
 
 video {
     z-index: -1;
