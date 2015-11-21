@@ -26,7 +26,7 @@ if (Meteor.isClient)
         token: function(res) 
         {
           stripeToken = res.id;
-          Meteor.call('chargeTheCard', stripeToken, input_donation);
+          Meteor.call('chargeTheCard', stripeToken, input_donation, productName);
         }
       });
       $dom.trigger("donation:success", { amount: input_donation, stripe_transcation_id: "" });
