@@ -7,12 +7,21 @@
     {{> chat_welcome }}
 </div>
 
-<div class="grid grid-module" id="chat-room">
-    {{> chat_messages}}
+<div class="row">
+    <!-- These will be replaced with templates later -->
+    <div>
+        {{> chat_rooms}}
+        </div>
+    <div class="col-xs-9" id="chat-room">
+        {{> chat_messages}}
+    </div>
+    <div class="col-xs-3">
+        {{> chat_users}}
+    </div>
+    <div id="chat-input">
+        {{> chat_input}}
+    </div>
 </div>
 
-<div class="grid grid-module" id="chat-input">
-    {{> chat_input}}
-</div>
 </template>
 
