@@ -30,5 +30,6 @@ Package.onUse(function (api) {
   //   ['server']);
 
 api.export('Posts');
+// api.export('Users');
 
 });

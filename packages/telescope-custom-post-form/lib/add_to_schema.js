@@ -1,12 +1,5 @@
+// Posts.schema = new SimpleSchema({
 Posts.addField([
-  {
-    fieldName: 'stripe_key',
-    fieldSchema: {
-      type: String,
-      optional: false,
-      editableBy: ["member","admin"]
-    }
-  },
  {
   fieldName: 'Donations',
   fieldSchema: {
@@ -14,12 +7,16 @@ Posts.addField([
     defaultValue: 0,
     editableBy: ["member", "admin"]
   }
+},
+ {
+  fieldName: 'TagLine',
+  fieldSchema: {
+    type: String,
+    optional: true,
+    editableBy: ["member", "admin"]
+  }
 }
-//  {
-//   fieldName: 'payment_charge_id',
-//   fieldSchema: {
-//     type: String,
-//     optional: false
-//   }
-// }
 ]);
+
+// Users.schema = new SimpleSchema --> note some params are added to the Users
+// public_key, access_token,stripe_account and Posrt_info(as object).

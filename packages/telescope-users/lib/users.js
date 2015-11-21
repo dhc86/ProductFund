@@ -230,6 +230,30 @@ Users.schema = new SimpleSchema({
     type: Object,
     optional: true,
     blackbox: true
+  },
+
+  Public_key: {
+    type: String,
+    optional: true,
+    defaultValue: 'Public_key',
+    editableBy: ["member", "admin"]
+  },
+  Access_token: {
+    type: String,
+    optional: true,
+    defaultValue: 'Access_token',
+    editableBy: ["member", "admin"]
+  },
+  Stripe_account_id: {
+    type: String,
+    optional: true,
+    defaultValue: 'Stripe_account_id',
+    editableBy: ["member", "admin"]
+  },
+  Post_info: {
+    type: Object,
+    optional: true,
+    editableBy: ["member", "admin"]
   }
 });
 

@@ -26,7 +26,19 @@ if (Meteor.isClient)
         token: function(res) 
         {
           stripeToken = res.id;
-          Meteor.call('chargeTheCard', stripeToken, input_donation, productName);
+          // Meteor.call('chargeTheCard', stripeToken, input_donation, productName, function(err, charge) {
+
+          //   // if charge then it worked
+          //   // else there was an error
+
+          // });
+           Meteor.call('chargeTheCard', stripeToken, input_donation, productName);
+
+          // success
+          // lookup post by the post_id
+          // increase post.amount by amount
+          // save it
+          // Posts.update(upvotePostId, {$set: {Donations: input_donation} });
         }
       });
       $dom.trigger("donation:success", { amount: input_donation, stripe_transcation_id: "" });

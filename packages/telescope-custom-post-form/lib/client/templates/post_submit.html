@@ -3,69 +3,36 @@
   <div class="form-page post-submit">
  
     <div class="grid grid-module">
-    <h3>Fill up the following form by following these two options:</h3>
-      <ul>
-        <li>You can generate a Thumbnail by just providing your website url AND/OR you can enter your product information in the following form.</li>
-      </ul>
-      
-
-      <!-- {{> submitProductForm}} -->
-<!-- 
-      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method"}}
- -->
+    <h3>Follow the following steps to post your product/event successfully:</h3>
+    <p>1) To start, in order to recieve donations you need to register to our Stripe Plataform by clicking on the Register to Stripe button.</p>
+    <a href="https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&amp;scope=read_write"><button>Register to Stripe</button></a>
+    <p>Note: We do not keep any of your financial information with Stripe.</p>
+    <p>2) After you are redirected back here, fill up the following form describing your product information. By providing your url people will be linked to your product website!</p>
 
 {{#autoForm collection="Posts" id="submitPostForm" meteormethod="submitPost"  input-col-class="controls" type="method"}}
     <fieldset>
       <legend>Enter your Product info</legend>
       {{> afQuickField name='title'}}
-      {{> afQuickField name='url'}}
+      {{> afQuickField name='TagLine'}}
       {{> afQuickField name='body'}}
-      <p>Enter category to add it in the right place!</p>
+      <p>We use  Embedly API to collect pictures and tag lines from your website, make sure it is the right url!</p>
+      {{> afQuickField name='url'}}
+      <p>Enter category to add your product in the right place!</p>
       {{> afQuickField name='categories'}}
-      <p>Note: Every product starts with $0 dollars donated. When donations take place, it will automatically increase!</p>
+      <p>Note: Every product starts with $0 dollars donated. When donations take place, it will automatically increase!</p><p>(Do not change this value)</p>
       {{> afQuickField name='Donations'}}
-      <p>Please make sure you have a Stripe account <a id="go_to_stripe" href="https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&amp;scope=read_write">click here</a></p>
-      <p>It's important to provide a valid Stripe key so donations can be  transferred to your account.</p>
-      {{> afQuickField name='stripe_key'}}
-
     </fieldset>
     <div>
+      <p>3) There is a $10 charge to post your product.</p>
       <button id="special-stripe-button">Proceed Payment</button>
-    <!-- {{#if succeeded}} -->
+    </div>
+    <div>
+      <h3>After Payment is approved you can post your product and let the world know about your idea!, Don't forget to promote your products in the chat room! </h3>
       <button type="method" id="post_product_button" meteormethod="submitPost" class="btn btn-primary">Post my Product</button>
-        <!-- {{/if}} -->
+    
     </div>
 
   {{/autoForm}}
-
-
-
-
-
-<!--       complete quickform -->
-   <!--    {{> quickForm collection="Posts" id="submitPostForm"  input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}} -->
-
-      <!-- <button id="special-stripe-button">Stripe button</button> -->
-
-
-
-      <h3>There is a $10 charge to post your product. By clicking submit you will be redirected to paypal for payment</h3>
-      <p>Note: Every product starts with $0 dollars donated. When donations take place, it will automatically increase!</p>
-
-  <!-- this button is just a demo -->
-  <!--   <form action="" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_GpmbjLyT5iOAfAPK7zT7DkF1"
-        data-amount="2000"
-        data-name="Demo Site"
-        data-description="2 widgets ($20.00)"
-        data-image="/128x128.png"
-        data-locale="auto">
-      </script>
-    </form> -->
-
-
 
 
     </div>
