@@ -12,10 +12,7 @@ if (Meteor.isClient)
       var input_donation = $dom.find('[data-content=donationAmount]').val();
       // console.log('donate amount', input_donation);
       // console.log('this title, this id', this.title, this._id);
-
       var productName = this.title
-      console.log(productName);
-     
       StripeCheckout.open(
       {
         key: 'pk_test_BqSZTj8QCwATWvhDqAGB6TqD',// should be owner's PK.
@@ -29,6 +26,14 @@ if (Meteor.isClient)
           Meteor.call('chargeTheCard', stripeToken, input_donation, productName);
         }
       });
+
+      //authentication for charging the donator on behalf of the owner
+      //var stripe = require('stripe')('sk_test_zeEjXNMdvQ3wdADZ1PSCIcjd')(PLATFORM_SECRET_KEY);
+        // stripe.customers.create(
+        //   {description: "example@stripe.com"},
+        //   {stripe_account: CONNECTED_STRIPE_ACCOUNT_ID}
+        // );
+
       $dom.trigger("donation:success", { amount: input_donation, stripe_transcation_id: "" });
 
       $dom.modal("hide");
