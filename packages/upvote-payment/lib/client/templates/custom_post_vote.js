@@ -1,37 +1,53 @@
-if (Meteor.isClient){
+if (Meteor.isClient)
+{
+  // Template.post_vote.helpers({
+  //   enableDownvotes: function () {
+  //     return Settings.get("enableDownvotes", false);
+  //   },
+  //   actionsClass: function () {
+  //     var user = Meteor.user();
+  //     var actionsClass = "";
+  //     if(!user) return false;
+  //     if (user.hasUpvoted(this)) {
+  //       actionsClass += " voted upvoted";
+  //     }
+  //     if (user.hasDownvoted(this)) {
+  //       actionsClass += " voted downvoted";
+  //     }
+  //     if (Settings.get("enableDownvotes", false)) {
+  //       actionsClass += " downvotes-enabled";
+  //     }
+  //     return actionsClass;
+  //   }
+  // });
+  Template.post_vote.events(
+  {
+    "click .upvote-link": function(e, t)
+    {
+      var $donationModal = t.$('[data-modal=donationModal]');
+      $donationModal.modal("show");
+      e.preventDefault();
+    }
+  });
 
-Template.post_vote.helpers({
-  enableDownvotes: function () {
-    return Settings.get("enableDownvotes", false);
-  },
-  actionsClass: function () {
+  Template.post_vote.rendered = function()
+  {
+    var post = this.data;
     var user = Meteor.user();
-    var actionsClass = "";
-    if(!user) return false;
-    if (user.hasUpvoted(this)) {
-      actionsClass += " voted upvoted";
-    }
-    if (user.hasDownvoted(this)) {
-      actionsClass += " voted downvoted";
-    }
-    if (Settings.get("enableDownvotes", false)) {
-      actionsClass += " downvotes-enabled";
-    }
-    return actionsClass;
+    var $donationModal = this.$('[data-modal=donationModal]');
+    $donationModal.on('donation:success', function success(e, payload)
+    { 
+
+      console.log('Donated Successfully', e, payload);
+      //payload is an object storing whatever information stored in { amount: input_donation, stripe_transcation_id: "" }
+      // Meteor.call('upvotePost', post._id, function(){
+      //   Events.track("post upvoted", {'_id': post._id});
+      // })
+    });
   }
-});
-
-
-Template.post_vote.events({
-  "click .upvote-link": function(e){
-    var post = this;
-    var user = Meteor.user();
-    e.preventDefault();
-    $("#donationModal").modal("show");
-  }
-});
-
 }
+
+  
     // if(!user){
     //   FlowRouter.go('signIn');
     //   Messages.flash(i18n.t("please_log_in_first"), "info");
@@ -71,35 +87,5 @@ Template.post_vote.events({
 
 
 
-// Template.stripePayment.hooks({
-//   rendered: function () {
-//     $('#creditCardNumber').payment('formatCardNumber');
-//     $('#creditCardCVV').payment('formatCardNumber');
-//   }
-// });
 
-// Template.profileEdit.events({
-//   'submit #stripePaymentForm': function(e) {
-//     e.preventDefault();
-//     var $form = $(e.target);
-//     var $cc = $form.find("#creditCardNumber").val();
-//     var $ccM = $form.find("#creditCardExpDateMonth").val();
-//     var $ccY = $form.find("#creditCardExpDateYear").val();
-//     var $cvc = $form.find("#creditCardCVC").val();
-
-// var error = true;
-//     if (!$.payment.validateCardNumber($cc)) {
-//       error = "The credit card number is invalid";
-//     }else
-//     if (!$.payment.validateCardExpiry($ccM, $ccY)) {
-//       error = "The expiry values have an error.";
-//     }else
-//     if (!$.payment.validateCardCVC($cvc)) {
-//       error = "The CVC value has an error.";
-//     }else{
-//       error=false
-//     }
-
-// }
-// });
 

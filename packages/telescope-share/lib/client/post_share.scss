@@ -15,8 +15,7 @@ $small-break: 600px;
   position: relative;
   color: #b3c1c6;
   order: 8;
-  // temporary
-  display: none;
+  
   @include small{
     display: none;
   } 
