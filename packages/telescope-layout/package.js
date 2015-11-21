@@ -55,6 +55,7 @@ Package.onUse(function (api) {
 
     api.addAssets([
     'public/videos/test.mp4',
-    'public/img/placeholderDon.png'
+    'public/img/placeholderDon.png',
+    'public/img/telescope.png'
   ], ['client']);
 });
