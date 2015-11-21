@@ -2,28 +2,8 @@
 // secret key:    sk_test_G77gaaVCcCaEFTccvZx04IFC  --> keep in server side
 // publishable key:   pk_test_GpmbjLyT5iOAfAPK7zT7DkF1  --> keep in client side
 
-// if (Meteor.isClient){
-//   // this code runs on the client
-// }
 
-// if (Meteor.isServer){
-//   // this code runs on the server
-// }
-
-// var myParam = location.search.split('code=')[1]
-// myParam
-
-
-// if (Meteor.isClient) {
-//   Template.post_submit.events({
-//     'click #special-stripe-button': function(e) {
-//       e.preventDefault();
-//     }
-//   });
-// }
   
-    
-
 // href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&scope=read_write
 
 if(Meteor.isServer){
@@ -40,8 +20,28 @@ if(Meteor.isServer){
                 "grant_type=authorization_code" }, 
 
               function(error, result) {
-                console.log("raw response :", result.data);
-                console.log("raw response error :", error);
+                var access_token = result.data.access_token;
+                var stripe_publishable_key = result.data.stripe_publishable_key;
+                var stripe_user_id = result.data.stripe_user_id;
+                console.log("access_token :",access_token);
+                console.log("stripe_publishable_key :",stripe_publishable_key);
+                console.log("stripe_user_id :",stripe_user_id);
+
+
+                var current_user = Meteor.user();
+                // current_user.req.params.Access_token = "diego herrera";
+                // console.log("current_user ------>", current_user);
+                // current_user.access_token = access_token;
+                // var currentuserID= current_user._id
+                // PlayersList.insert({name: "David",score: 0});
+                // console.log('users', Users)
+                // Users.insert(currentuserID, {$set: {Access_token: access_token} });
+
+
+
+                console.log("users ID ------------>: ", current_user._id);
+                console.log("users public key ------------>: ", current_user.Public_key);
+                console.log("users access_token ------------>: ", current_user.Access_token);
 
                 if(result.statusCode==200) {
                     console.log("response received.");
@@ -51,7 +51,7 @@ if(Meteor.isServer){
                 else {
                     console.log("Response issue: ", result.statusCode);
                     // var errorJson = JSON.parse(result.content);
-                    throw new Meteor.Error(result.statusCode, errorJson.error);
+                    // throw new Meteor.Error(result.statusCode, errorJson.error);
                 }
             });
         }
