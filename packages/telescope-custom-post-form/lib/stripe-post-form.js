@@ -7,6 +7,7 @@
 // href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&scope=read_write
 
 if(Meteor.isServer){
+
     Meteor.methods({
         fetchFromService: function(authentication_key) {
             console.log("===========================================");
@@ -61,6 +62,45 @@ if(Meteor.isServer){
             });
         }
     });
+
+  Meteor.methods({
+    fetchFromService: function(authentication_key) {
+      console.log("===========================================");
+      console.log("authentication_key : ", authentication_key);
+
+      var url = "https://connect.stripe.com/oauth/token";
+
+      Meteor.http.post(url, {content:  
+          "client_secret=sk_test_G77gaaVCcCaEFTccvZx04IFC&"+
+          "code="+authentication_key+"&"+
+          "grant_type=authorization_code" }, 
+
+        function(error, result) {
+          var access_token = result.data.access_token;
+          var stripe_publishable_key = result.data.stripe_publishable_key;
+          var stripe_user_id = result.data.stripe_user_id;
+          console.log("access_token :",access_token);
+          console.log("stripe_publishable_key :",stripe_publishable_key);
+          console.log("stripe_user_id :",stripe_user_id);
+
+          var current_user = Meteor.user();
+   
+          Users.update(current_user._id,{$set: {Access_token: access_token}});
+          Users.update(current_user._id,{$set: {Public_key: stripe_publishable_key}});
+          Users.update(current_user._id,{$set: {Stripe_user_id: stripe_user_id }});
+
+          if(result.statusCode==200) {
+              console.log("response received.");
+          }else if(result.statusCode===null){
+            console.log("There response is null")
+          } 
+          else {
+              console.log("Response issue: ", result.statusCode);
+          }
+      });
+    }
+  });
+>>>>>>> 3103c86d00bf0255f7a0d6915a7cf2a316c7d0f3
 }
 
 
