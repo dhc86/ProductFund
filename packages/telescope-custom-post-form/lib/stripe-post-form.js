@@ -1,9 +1,6 @@
 
 // secret key:    sk_test_G77gaaVCcCaEFTccvZx04IFC  --> keep in server side
-// publishable key:   pk_test_GpmbjLyT5iOAfAPK7zT7DkF1  --> keep in client side
-
-
-  
+// publishable key:   pk_test_GpmbjLyT5iOAfAPK7zT7DkF1  --> keep in client side  
 // href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&scope=read_write
 
 if(Meteor.isServer){               
@@ -34,12 +31,12 @@ if(Meteor.isServer){
           Users.update(current_user._id,{$set: {Stripe_user_id: stripe_user_id }});
 
           if(result.statusCode==200) {
-              console.log("response received.");
+            console.log("response received.");
           }else if(result.statusCode===null){
             console.log("There response is null")
           } 
           else {
-              console.log("Response issue: ", result.statusCode);
+            console.log("Response issue: ", result.statusCode);
           }
       });
     }
