@@ -89,15 +89,8 @@ if (Meteor.isServer) {
 
 
         Users.update(currentUserID,{$set: {Post_entry_fee: status}});
-       
-
-        // console.log("status: ",status);
 
         // if (status === "succeeded"){
-        
-
-
-
 
         // }
         // else {

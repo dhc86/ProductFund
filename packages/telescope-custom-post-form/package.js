@@ -17,12 +17,13 @@ Package.onUse(function (api) {
   api.addFiles([
     'lib/client/templates/submit_button.html',
     'lib/client/templates/post_submit.html',
-    'lib/client/templates/submit_form.html'],
+    'lib/client/templates/submit_form.html',
+    'lib/client/templates/users_post_info.js'],
     ['client']);
 
+
   api.addFiles([
-    'lib/stripe-post-form.js',
-    'lib/submit_form.js'],
+    'lib/stripe-post-form.js'],
     ['client','server']);
 
   // api.addFiles([
