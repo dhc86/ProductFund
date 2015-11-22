@@ -244,10 +244,10 @@ Users.schema = new SimpleSchema({
     defaultValue: 'Access_token',
     editableBy: ["member", "admin"]
   },
-  Stripe_account_id: {
+  Stripe_user_id: {
     type: String,
     optional: true,
-    defaultValue: 'Stripe_account_id',
+    defaultValue: 'Stripe_user_id',
     editableBy: ["member", "admin"]
   },
   Post_info: {

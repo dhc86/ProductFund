@@ -10,7 +10,7 @@ if(Meteor.isServer){
     Meteor.methods({
         fetchFromService: function(authentication_key) {
             console.log("===========================================");
-            console.log("authentication_key : ", authentication_key);
+            // console.log("authentication_key : ", authentication_key);
 
             var url = "https://connect.stripe.com/oauth/token";
 
@@ -20,28 +20,33 @@ if(Meteor.isServer){
                 "grant_type=authorization_code" }, 
 
               function(error, result) {
+                console.log(result)
                 var access_token = result.data.access_token;
                 var stripe_publishable_key = result.data.stripe_publishable_key;
                 var stripe_user_id = result.data.stripe_user_id;
-                console.log("access_token :",access_token);
-                console.log("stripe_publishable_key :",stripe_publishable_key);
-                console.log("stripe_user_id :",stripe_user_id);
+                // console.log("access_token :",access_token);
+                //console.log("stripe_publishable_key :",stripe_publishable_key);
+                 // console.log("stripe_user_id :",stripe_user_id);
 
 
                 var current_user = Meteor.user();
+                var currentuserID= current_user._id
+               // console.log("currentuserID", currentuserID);
+
                 // current_user.req.params.Access_token = "diego herrera";
-                // console.log("current_user ------>", current_user);
+               
                 // current_user.access_token = access_token;
-                // var currentuserID= current_user._id
+                
                 // PlayersList.insert({name: "David",score: 0});
                 // console.log('users', Users)
-                // Users.insert(currentuserID, {$set: {Access_token: access_token} });
+                Users.update(currentuserID, {$set: {Stripe_user_id: stripe_user_id } });
+                // Users.update
 
 
 
-                console.log("users ID ------------>: ", current_user._id);
-                console.log("users public key ------------>: ", current_user.Public_key);
-                console.log("users access_token ------------>: ", current_user.Access_token);
+                // console.log("users ID ------------>: ", current_user._id);
+                // console.log("users public key ------------>: ", current_user.Public_key);
+                // console.log("users access_token ------------>: ", current_user.Access_token);
 
                 if(result.statusCode==200) {
                     console.log("response received.");
