@@ -77,21 +77,33 @@ if (Meteor.isServer) {
     'chargeCard': function(stripeToken) {
       check(stripeToken, String);
       var Stripe = StripeAPI('sk_test_G77gaaVCcCaEFTccvZx04IFC');
-
+      var current_user = Meteor.user();
+      console.log(current_user);
+      var currentUserID= current_user._id;
       Stripe.charges.create({
         source: stripeToken,
         amount: 1000, // this is equivalent to $10
         currency: 'usd'
-      }, function(err, charge) {
-        console.log(charge);
-        if (charge.status === "succeeded"){
-        console.log("Sucessssssss");
-          // here I need to show my button of post my product
-        }
-        else {
-          console.log("not accepatble payment");
-        }
-      });
+      }, Meteor.bindEnvironment(function(err, charge) {
+        var status = charge.status
+
+
+        Users.update(currentUserID,{$set: {Post_entry_fee: status}});
+       
+
+        // console.log("status: ",status);
+
+        // if (status === "succeeded"){
+        
+
+
+
+
+        // }
+        // else {
+        //   console.log("not accepatble payment");
+        // }
+      }));
     }
   });
 }

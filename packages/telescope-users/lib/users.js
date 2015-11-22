@@ -250,10 +250,20 @@ Users.schema = new SimpleSchema({
     defaultValue: 'Stripe_account_id',
     editableBy: ["member", "admin"]
   },
-  Post_info: {
-    type: Object,
+  Post_name: {
+    type: String,
     optional: true,
-    editableBy: ["member", "admin"]
+    defaultValue: 'Post name'
+  },
+  Post_id: {
+    type: String,
+    optional: true,
+    defaultValue: 'Post ID'
+  },
+  Post_entry_fee: {
+    type: String,
+    optional: true,
+    defaultValue: 'Not paid'
   }
 });
 
