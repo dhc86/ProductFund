@@ -16,6 +16,7 @@ AutoForm.hooks({
 
         var post = doc;
 
+
         this.template.$('button[type=submit]').addClass('loading');
         this.template.$('input, textarea').not(":disabled").addClass("disabled").prop("disabled", true);
 
@@ -29,6 +30,7 @@ AutoForm.hooks({
         // ------------------------------ Callbacks ------------------------------ //
 
         // run all post submit client callbacks on properties object successively
+        alert("I mndcjinkj dbncjkdnck");
         post = Telescope.callbacks.run("postSubmitClient", post);
 
         return post;
@@ -39,6 +41,7 @@ AutoForm.hooks({
       Events.track("new post", {'postId': post._id});
       var template = this.template;
       Telescope.subsManager.subscribe('singlePost', post._id, function () {
+
         template.$('button[type=submit]').removeClass('loading');
         FlowRouter.go('postPage', post);
       });

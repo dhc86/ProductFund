@@ -78,24 +78,23 @@ if (Meteor.isServer) {
       check(stripeToken, String);
       var Stripe = StripeAPI('sk_test_G77gaaVCcCaEFTccvZx04IFC');
       var current_user = Meteor.user();
-      console.log(current_user);
+      console.log("current user info when paying post fee: ", current_user);
       var currentUserID= current_user._id;
       Stripe.charges.create({
         source: stripeToken,
         amount: 1000, // this is equivalent to $10
         currency: 'usd'
       }, Meteor.bindEnvironment(function(err, charge) {
-        var status = charge.status
+        var status = charge.status;
 
 
-        Users.update(currentUserID,{$set: {Post_entry_fee: status}});
+        if (status === "succeeded"){
+        // Users.update(currentUserzxIzD,{$set: {Post_entry_fee: status}});
 
-        // if (status === "succeeded"){
-
-        // }
-        // else {
-        //   console.log("not accepatble payment");
-        // }
+        }
+        else {
+          console.log("not accepatble payment");
+        }
       }));
     }
   });
