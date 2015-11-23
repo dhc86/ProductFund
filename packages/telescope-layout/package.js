@@ -48,6 +48,7 @@ Package.onUse(function (api) {
     // new templates
     'lib/client/templates/post_live.html',
     'lib/client/templates/post_description.html',
+
     // 'lib/client/templates/total_donation.html',
 
     // screen

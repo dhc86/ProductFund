@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Telescope chatroom package",
-    version: "0.3.1",
+    version: "0.3.2",
     name: "telescope-custom-chat",
     git: "https://github.com/dhc86/Telescope"
 });
@@ -9,7 +9,9 @@ Package.onUse(function(api) {
 
     api.use([
         'telescope:lib@0.25.5',
-        'telescope:users@0.25.5'
+        'telescope:users@0.25.5',
+        'telescope:posts@0.25.5',
+        'telescope:comments@0.25.5'
     ])
 
     api.add_files([

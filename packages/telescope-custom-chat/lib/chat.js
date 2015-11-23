@@ -2,8 +2,16 @@ if (Meteor.isClient) {
     Meteor.subscribe("chat_messages");
     Meteor.subscribe("chat_rooms");
     Meteor.subscribe("chat_users");
+    Meteor.subscribe("users");
+    Meteor.subscribe("posts");
+    Meteor.subscribe("comments");
     Session.setDefault("roomname", "General");
 
+    Template.chat_page.helpers({
+        chat_product: function() {
+            return Posts.findOne({});
+        }
+    })
 
     Template.chat_messages.helpers({
         chat_messages: function() {
@@ -57,7 +65,7 @@ if (Meteor.isClient) {
             // timeout so page doesn't have to update all messages
             setTimeout(function() {
                 //initialize chat user for the user list
-                if (chatUsers._collection.update({name: name}, {name: name}) === 0) {
+                if (chatUsers.find({name: name}).count() === 0) {
                     var time = (new Date()).getTime();
                     Meteor.call("newChatUser", {
                         name: name,
@@ -149,6 +157,18 @@ if (Meteor.isServer) {
 
     Meteor.publish('chat_users', function() {
         return chatUsers.find({});
+    });
+
+    Meteor.publish('posts', function() {
+        return Posts.find({});
+    });
+
+    Meteor.publish('comments', function() {
+        return Comments.find({});
+    });
+
+    Meteor.publish('users', function() {
+        return Users.find({});
     });
 
     // clears chat of outdated users

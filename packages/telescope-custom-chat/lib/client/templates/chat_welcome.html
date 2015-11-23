@@ -1,3 +1,8 @@
 <template name="chat_welcome">
-<p>Let's chat over the interweb</p>
+<div class="post-content {{moduleClass}}">
+    {{> modules zone="postThumbnail" moduleData=chat_product}}
+    <div class="post-info">
+        {{> modules zone="postHeading" zoneClass="post-heading" moduleData=chat_product}}
+    </div>
+</div>
 </template>
