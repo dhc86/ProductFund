@@ -33,39 +33,24 @@
             letter-spacing: 8px;
             text-shadow: -1px -1px rgba(0, 0, 0, 0.33);
             font-family: "Open Sans";
-<<<<<<< HEAD
             flex-flow: column wrap;
-=======
-            height: 50%;
->>>>>>> 765084266b60d34d21fa57112b09e4af54a795b5
             @include medium-large {
                 font-size: 28px;
             }
             a {
                 color: white;
             }
-<<<<<<< HEAD
             .total-donation {
                 font-size: 10px;
                 .total-counter {
                     background-color: transparent;
                 }
-=======
-
-            .total-donation {
-                color: red;
-                font-weight: bold;
->>>>>>> 765084266b60d34d21fa57112b09e4af54a795b5
             }
         }
     }
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 765084266b60d34d21fa57112b09e4af54a795b5
 video {
     z-index: -1;
     position: absolute;
