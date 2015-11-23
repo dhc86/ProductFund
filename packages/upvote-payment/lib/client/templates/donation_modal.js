@@ -18,7 +18,7 @@ if (Meteor.isClient) {
       console.log ('stripe user id ' , stripe_account_info, "ower PK:", stripe_pk );
        
       StripeCheckout.open({
-        key: stripe_pk, // should be owner's PK.
+        key: 'pk_test_GpmbjLyT5iOAfAPK7zT7DkF1', // should be owner's PK.
         amount: input_donation * 100, // this is equivalent to donationAmount
         name: 'Donation for' + ' ' + productName,
         description: 'Your total donation amount is $' + input_donation,

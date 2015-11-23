@@ -60,6 +60,7 @@ if (Meteor.isServer) {
         amount: input_donation * 100, // this is equivalent to donationAmount
         currency: 'cad',
         source:stripeToken,
+        //source: stripe_access_token,
         destination: stripe_user_id,
         metadata: {"product name": productName}
       }, function(err, charge) {
