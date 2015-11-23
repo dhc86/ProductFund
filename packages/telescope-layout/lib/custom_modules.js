@@ -8,10 +8,10 @@ Telescope.modules.add("postHeading", {
   order: 30
 });
 
-Telescope.modules.add("totalDonation", {
-  template: "total_donation",
-  order: 10
-});
+// Telescope.modules.add("totalDonation", {
+//   template: "total_donation",
+//   order: 10
+// });
 
 Telescope.modules.remove("postComponents", "post_avatars");
 Telescope.modules.remove("postComponents", "post_discuss");
