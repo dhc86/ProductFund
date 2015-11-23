@@ -48,7 +48,11 @@ Package.onUse(function (api) {
     // new templates
     'lib/client/templates/post_live.html',
     'lib/client/templates/post_description.html',
+<<<<<<< HEAD
     // 'lib/client/templates/total_donation.html',
+=======
+    'lib/client/templates/total_donation.html',
+>>>>>>> 765084266b60d34d21fa57112b09e4af54a795b5
 
     // screen
     'lib/client/scss/screen.scss'
