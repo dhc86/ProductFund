@@ -77,7 +77,7 @@ if (Meteor.isServer) {
       Stripe.charges.create({
         source: stripeToken,
         amount: 1000, // this is equivalent to $10
-        currency: 'usd'
+        currency: 'cad'
       }, Meteor.bindEnvironment(function(err, charge) {
         var status = charge.status
 

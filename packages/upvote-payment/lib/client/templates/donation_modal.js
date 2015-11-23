@@ -1,35 +1,37 @@
-if (Meteor.isClient) 
-{
-  Template.donationModal.events(
-  {
-    'click [data-action=confirm]': function(e, t)
-    {
+if (Meteor.isClient) {
+  // Meteor.subscribe('owner-pk', stripe_pk);
 
+  Template.donationModal.events({
+    'click [data-action=confirm]': function(e, t){
       // debugger 
       var $dom = t.$('[data-modal=donationModal]');
       e.preventDefault();
        
       var input_donation = $dom.find('[data-content=donationAmount]').val();
-      // console.log('donate amount', input_donation);
-      // console.log('this title, this id', this.title, this._id);
-      var productName = this.title
-      StripeCheckout.open(
-      {
-        key: 'pk_test_BqSZTj8QCwATWvhDqAGB6TqD',// should be owner's PK.
+      
+      var productName = this.title;
+      var productAuthorID= this.userId;
+
+      var stripe_account_info = Users.find({'_id': productAuthorID}).fetch();
+      var stripe_pk = stripe_account_info[0].Public_key
+
+      console.log ('stripe user id ' , stripe_account_info, "ower PK:", stripe_pk );
+       
+      StripeCheckout.open({
+        key: stripe_pk, // should be owner's PK.
         amount: input_donation * 100, // this is equivalent to donationAmount
         name: 'Donation for' + ' ' + productName,
         description: 'Your total donation amount is $' + input_donation,
         panelLabel: 'Pay Now',
         token: function(res) 
-        {
-          stripeToken = res.id;
+        { stripeToken = res.id;
           // Meteor.call('chargeTheCard', stripeToken, input_donation, productName, function(err, charge) {
 
           //   // if charge then it worked
           //   // else there was an error
 
           // });
-           Meteor.call('chargeTheCard', stripeToken, input_donation, productName);
+           Meteor.call('chargeTheCard', stripeToken, input_donation, productName, productAuthorID );
 
           // success
           // lookup post by the post_id
