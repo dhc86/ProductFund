@@ -1,0 +1,9 @@
+<template name="chat_rooms">
+<div class="btn-group" data-toggle="buttons">
+    {{#each chat_rooms}}
+    <label class="btn btn-default room-select">
+        <input type="radio" name="rooms" value={{roomname}}>{{roomname}}
+    </label>
+    {{/each}}
+</div>
+</template>

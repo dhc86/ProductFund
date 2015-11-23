@@ -33,7 +33,7 @@ if (Meteor.isClient)
   Template.post_vote.rendered = function()
   {
     var post = this.data;
-    var user = Meteor.user();
+    // var user = Meteor.user();
     var $donationModal = this.$('[data-modal=donationModal]');
     $donationModal.on('donation:success', function success(e, payload)
     { 

@@ -10,14 +10,13 @@ Package.onUse(function (api) {
         'telescope:posts@0.25.5'
     ]);
 
-    api.addFiles([
+  api.addFiles([
     'lib/add_to_schema.js'], 
     ['client', 'server']);
 
   api.addFiles([
     'lib/client/templates/submit_button.html',
     'lib/client/templates/post_submit.html',
-    'lib/client/templates/submit_form.html',
     'lib/client/templates/users_post_info.js'],
     ['client']);
 
@@ -30,7 +29,7 @@ Package.onUse(function (api) {
   //   'lib/server/posts.js'],
   //   ['server']);
 
-api.export('Posts');
-// api.export('Users');
+  api.export('Posts');
+ 
 
 });

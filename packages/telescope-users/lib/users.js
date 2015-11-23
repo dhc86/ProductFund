@@ -235,22 +235,23 @@ Users.schema = new SimpleSchema({
   Public_key: {
     type: String,
     optional: true,
-    public: false,
+    public:true,
     defaultValue: 'Public_key',
     editableBy: ["member", "admin"]
   },
   Access_token: {
     type: String,
     optional: true,
-    public: false,
+    // public:false,
     defaultValue: 'Access_token',
     editableBy: ["member", "admin"]
   },
   Stripe_user_id: {
     type: String,
     optional: true,
-    public: false,
     defaultValue: 'Stripe_account_id',
+    // public:false,
+    defaultValue: 'Stripe_user_id',
     editableBy: ["member", "admin"]
   },
   Post_name: {
