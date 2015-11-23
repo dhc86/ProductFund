@@ -28,7 +28,7 @@ Template.logo.onRendered(function  () {
     max: 40,
     truncate: false
   });
-  $('.counter').each(function () {
+  $('.total-counter').each(function () {
       $(this).prop('Counter',0).animate({
           // debugger
           Counter: $(this).text()
