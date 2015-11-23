@@ -33,12 +33,14 @@
             letter-spacing: 8px;
             text-shadow: -1px -1px rgba(0, 0, 0, 0.33);
             font-family: "Open Sans";
+            height: 50%;
             @include medium-large {
                 font-size: 28px;
             }
             a {
                 color: white;
             }
+
             .total-donation {
                 color: red;
                 font-weight: bold;
