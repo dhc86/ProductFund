@@ -249,6 +249,7 @@ Users.schema = new SimpleSchema({
   Stripe_user_id: {
     type: String,
     optional: true,
+    defaultValue: 'Stripe_account_id',
     // public:false,
     defaultValue: 'Stripe_user_id',
     editableBy: ["member", "admin"]
