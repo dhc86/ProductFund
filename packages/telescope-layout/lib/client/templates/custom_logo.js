@@ -13,14 +13,7 @@ Template.logo.helpers({
     return collection;
 
   }
-  // counter: function() {
-
-    // debugger;
-    // $('.count')
 });
-
-
-
 
 Template.logo.onRendered(function  () {
   $(".side-nav .logo-text").quickfit({
@@ -28,6 +21,7 @@ Template.logo.onRendered(function  () {
     max: 40,
     truncate: false
   });
+
   $('.total-counter').each(function () {
       $(this).prop('Counter',0).animate({
           // debugger
