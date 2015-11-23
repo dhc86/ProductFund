@@ -8,7 +8,7 @@ Template.logo.helpers({
     var collection = 0;
     var posts = Posts.find().fetch();
     for (i = 0; i < posts.length; i++) { 
-      collection += posts[i].upvotes;
+      collection += posts[i].Donations;
     };
     return collection;
 
