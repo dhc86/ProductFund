@@ -1,0 +1,19 @@
+<template name="custom_logo">
+  <div class="logo header-module">
+    {{#if logoUrl}}
+      <h1 class="logo-image ">
+        <a href="/">
+          <img src="{{logoUrl}}" alt="{{getSetting "title" "ProductFund"}}"/>
+        </a>
+      </h1>
+    {{else}}
+      <h1 class="logo-text"><a href="/">{{getSetting "title" "ProductFund"}}</a></h1>
+    {{/if}}
+    {{#if getSetting "tagline"}}
+      <h2 class="tagline">{{getSetting "tagline"}}</h2>
+    {{/if}}
+<!--   <div class="total-donation">
+    <h1>${{totalDonation}}</h1>
+  </div> -->
+  </div>
+</template>

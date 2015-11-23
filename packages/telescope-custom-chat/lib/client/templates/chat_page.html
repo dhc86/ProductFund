@@ -1,10 +1,9 @@
 <template name="chat_page">
 
-<!-- PURELY temporary style section to toy around with -->
-
-<div class="grid grid-module">
-    <h2>Chat Room</h2>
-    {{> chat_welcome }}
+<div class="posts posts-list">
+    {{#with chat_product}}
+    {{> post_item post=this}}
+    {{/with}}
 </div>
 
 <div class="row">

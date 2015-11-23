@@ -39,11 +39,24 @@ Package.onUse(function (api) {
     // overrides
     'lib/client/templates/custom_post_content.html',
     'lib/client/templates/custom_post_content.js',
+    'lib/client/templates/custom_header.html',
+    'lib/client/templates/custom_post_thumbnail.html',
+    'lib/client/templates/custom_logo.html',
+    'lib/client/templates/custom_logo.js',
+    'lib/client/templates/custom_post_info.html',
 
-    //templates
+    // new templates
     'lib/client/templates/post_live.html',
+    'lib/client/templates/post_description.html',
+    'lib/client/templates/total_donation.html',
 
     // screen
     'lib/client/scss/screen.scss'
+  ], ['client']);
+
+    api.addAssets([
+    'public/videos/test.mp4',
+    'public/img/placeholderDon.png',
+    'public/img/telescope.png'
   ], ['client']);
 });

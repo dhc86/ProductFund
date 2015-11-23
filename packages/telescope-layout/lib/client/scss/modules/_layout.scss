@@ -5,9 +5,10 @@ body{
 .content-wrapper{
   max-width: 800px;
   padding: 0 20px;
-  text-align: center;
+  text-align: left;
   @include large {
     padding: 0 10px;
     text-align: left;
   }
 }
+
