@@ -5,7 +5,10 @@ if (Meteor.isClient) {
     Meteor.subscribe("users");
     Meteor.subscribe("posts");
     Meteor.subscribe("comments");
-    Session.setDefault("roomname", "General");
+
+    if (!Session.get("roomname")) {
+        Session.setDefault("roomname", "General");
+    }
 
     Template.chat_page.helpers({
         chat_product: function() {
@@ -31,6 +34,11 @@ if (Meteor.isClient) {
         chat_users: function() {
             // will later only return users for the current room
             return chatUsers.find({roomname: Session.get("roomname")}, {sort: {time: 1}});
+        },
+        is_the_owner: function() {
+            var roomname = Session.get("roomname");
+            var owner = chatRooms.findOne({roomname: roomname}).owner;
+            return this.name === owner;
         }
     });
 
@@ -47,16 +55,20 @@ if (Meteor.isClient) {
         var scroll_down = function() {
             // autoscroll
             var chat = $('div#chat-room');
+
             // do not scroll if hovering on chat
             // may potentially change to :focus
-            var chatHover = chat.is(":hover");
-            if (!chatHover) {
-                var height = chat.prop('scrollHeight');
-                chat.animate({scrollTop: height});
+            if (chat.size() > 0) {
+                var chatHover = chat.is(":hover");
+                if (!chatHover) {
+                    var height = chat.prop('scrollHeight');
+                    chat.animate({scrollTop: height});
+                }
             }
             // clear input
         }
 
+        //this interval carries over to other parts of website. unsure how to stop
         Meteor.setInterval(function() {
             scroll_down();
         }, 500);
@@ -67,6 +79,7 @@ if (Meteor.isClient) {
                 //initialize chat user for the user list
                 if (chatUsers.find({name: name}).count() === 0) {
                     var time = (new Date()).getTime();
+
                     Meteor.call("newChatUser", {
                         name: name,
                         public_id: name,
@@ -77,7 +90,8 @@ if (Meteor.isClient) {
                 Template.chat_messages.helpers({
                     update_scroll: scroll_down
                 });
-                var room_select = Session.get("roomname");
+                var room_name = Session.get("roomname");
+                var room_select = chatRooms.findOne({roomname: room_name})._id
                 $('.room-select input[value=' + room_select + ']')
                 .parent()
                 .addClass('active');
@@ -198,7 +212,7 @@ Meteor.methods({
         );
     },
     changeRoom: function (name, roomname) {
-            var time = (new Date()).getTime();
+        var time = (new Date()).getTime();
         chatUsers.update(
             {name: name},
             {$set: {roomname: roomname}}
