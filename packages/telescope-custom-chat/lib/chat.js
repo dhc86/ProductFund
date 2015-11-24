@@ -47,16 +47,20 @@ if (Meteor.isClient) {
         var scroll_down = function() {
             // autoscroll
             var chat = $('div#chat-room');
+
             // do not scroll if hovering on chat
             // may potentially change to :focus
-            var chatHover = chat.is(":hover");
-            if (!chatHover) {
-                var height = chat.prop('scrollHeight');
-                chat.animate({scrollTop: height});
+            if (chat.size() > 0) {
+                var chatHover = chat.is(":hover");
+                if (!chatHover) {
+                    var height = chat.prop('scrollHeight');
+                    chat.animate({scrollTop: height});
+                }
             }
             // clear input
         }
 
+        //this interval carries over to other parts of website. unsure how to stop
         Meteor.setInterval(function() {
             scroll_down();
         }, 500);
@@ -198,7 +202,7 @@ Meteor.methods({
         );
     },
     changeRoom: function (name, roomname) {
-            var time = (new Date()).getTime();
+        var time = (new Date()).getTime();
         chatUsers.update(
             {name: name},
             {$set: {roomname: roomname}}
