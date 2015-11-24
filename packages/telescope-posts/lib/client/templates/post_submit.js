@@ -30,7 +30,7 @@ AutoForm.hooks({
         // ------------------------------ Callbacks ------------------------------ //
 
         // run all post submit client callbacks on properties object successively
-        alert("I mndcjinkj dbncjkdnck");
+
         post = Telescope.callbacks.run("postSubmitClient", post);
 
         return post;

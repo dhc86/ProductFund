@@ -4,10 +4,10 @@ Telescope.modules.add("postComponents", {
 });
 
 
-Telescope.modules.add("postHeading", {
-  template: "post_description",
-  order: 30
-});
+// Telescope.modules.add("postHeading", {
+//   template: "post_description",
+//   order: 30
+// });
 
 // Telescope.modules.add("totalDonation", {
 //   template: "total_donation",
