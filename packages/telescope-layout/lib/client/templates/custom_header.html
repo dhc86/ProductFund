@@ -1,8 +1,7 @@
 <template name="custom_header">
   <header class="header {{headerClass}}">
     <!-- plays video in the header -->
-  <!--   <video autoplay="autoplay" loop muted><source src="http://gfycat.com/HarmfulMinorClumber" type ="video/mp4"></video> -->
-  <iframe src="http://gfycat.com/ifr/HarmfulMinorClumber" frameborder="0" scrolling="no" width="854" height="480" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" ></iframe>
+    <video autoplay="autoplay" loop muted><source src="/packages/telescope-layout/public/videos/pitch.mp4" type="video/mp4"></video>
 
     <a href="#menu" class="mobile-only mobile-menu-button button">
       {{{icon "menu"}}}
@@ -20,8 +19,10 @@
     {{#if hasSecondaryNav}}
       {{> modules zone="secondaryNav" zoneClass="nav secondary-nav desktop-nav header-module desktop-only" moduleClass="header-submodule"}}
     {{/if}}
+      <a class="general-chat" href="/chat">Join Chat</a>
+
 
   </header>
 </template>
 
-<!-- <source src="/packages/telescope-layout/public/videos/test.mp4" type="video/mp4"> -->
+ <!-- <source src="/packages/telescope-layout/public/videos/test.mp4" type="video/mp4"> -->

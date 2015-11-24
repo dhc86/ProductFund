@@ -58,8 +58,8 @@ Package.onUse(function (api) {
   ], ['client']);
 
     api.addAssets([
-    'public/videos/test.mp4',
-    'public/img/placeholderDon.png',
+    'public/videos/pitch.mp4',
+    // 'public/img/placeholderDon.png',
     'public/img/telescope.png'
   ], ['client']);
 });
