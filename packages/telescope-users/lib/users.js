@@ -264,6 +264,11 @@ Users.schema = new SimpleSchema({
     optional: true,
     defaultValue: 'Post ID'
   },
+  stripe_plataform_member: {
+    type: String,
+    optional: true,
+    defaultValue: 'Not a member'
+  },
   Post_entry_fee: {
     type: String,
     optional: true,

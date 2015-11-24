@@ -53,6 +53,9 @@ Posts.before.update(function (userId, doc, fieldNames, modifier) {
 function afterPostSubmitOperations (post) {
   var userId = post.userId;
   Meteor.users.update({_id: userId}, {$inc: {"telescope.postCount": 1}});
+
+  // change the Post_entry_fee to not paid for next time to pay
+  Meteor.users.update({_id: userId}, {$set: {Post_entry_fee: "Not paid" }});
   return post;
 }
 Telescope.callbacks.add("postSubmitAsync", afterPostSubmitOperations);

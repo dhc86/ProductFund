@@ -22,16 +22,21 @@ Template.logo.onRendered(function  () {
     truncate: false
   });
 
-  $('.total-counter').each(function () {
-      $(this).prop('Counter',0).animate({
-          Counter: $(this).text()
-      }, {
-          duration: 4000,
-          easing: 'swing',
-          step: function (now) {
-              $(this).text(Math.ceil(now));
-          }
-      });
-  });
+//Henry's version, and is moved as a callback function to the custom_post_vote.js.
+//Once the a new donation goes through, the counter updates.
+
+  // $('.total-counter').each(function () {
+  //     $(this).prop('Counter',0).animate({
+  //         Counter: $(this).text()
+  //     }, {
+  //         duration: 4000,
+  //         easing: 'swing',
+  //         step: function (now) {
+  //           $(this).text(Math.ceil(now));
+
+  //         }
+  //     });
+  // });
+  
 });
 

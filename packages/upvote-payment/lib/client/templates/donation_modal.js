@@ -19,10 +19,10 @@ if (Meteor.isClient) {
         }
       });
       $dom.modal("hide");
+      
     }
   });
 }
 
- //$dom.trigger("donation:success", { amount: input_donation, stripe_transcation_id: "" });
-
+ // $dom.trigger("donation:success", { amount: input_donation});
 
