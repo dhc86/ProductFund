@@ -9,7 +9,7 @@ Posts.addField([
   }
 },
  {
-  fieldName: 'TagLine',
+  fieldName: 'short_description',
   fieldSchema: {
     type: String,
     optional: true,
