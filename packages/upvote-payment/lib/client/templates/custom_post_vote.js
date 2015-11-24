@@ -1,6 +1,6 @@
 if (Meteor.isClient){
   Template.post_vote.events({
-    "click .upvote-link": function(e, t){
+    "click .donation-link": function(e, t){
       var $donationModal = t.$('[data-modal=donationModal]');
       $donationModal.modal("show");
       e.preventDefault();
