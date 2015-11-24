@@ -15,8 +15,8 @@ if (Meteor.isServer) {
         metadata: {"product name": productName}
       }, Meteor.bindEnvironment(function(err, charge) {
         Posts.update(productID, {$inc: {Donations: charge.amount/100} });
-        console.log('charge amount', charge.amount/100,
-                     'product id', productID )    
+        // console.log('charge amount', charge.amount/100,
+        //              'product id', productID )    
       }));
     }    
   });  
