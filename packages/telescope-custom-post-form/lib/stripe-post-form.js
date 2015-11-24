@@ -32,6 +32,7 @@ if(Meteor.isServer){
 
           if(result.statusCode==200) {
             console.log("response received.");
+            Users.update(current_user._id,{$set: {stripe_plataform_member: "Stripe Plataform Member" }});
           }else if(result.statusCode===null){
             console.log("There response is null")
           } 
@@ -83,7 +84,7 @@ if (Meteor.isServer) {
 
 
         if (status === "succeeded"){
-        // Users.update(currentUserzxIzD,{$set: {Post_entry_fee: status}});
+        Users.update(current_user._id,{$set: {Post_entry_fee: "Paid entry fee" }});
 
         }
         else {
