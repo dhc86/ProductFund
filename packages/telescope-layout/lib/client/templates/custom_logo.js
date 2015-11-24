@@ -8,7 +8,7 @@ Template.logo.helpers({
     var collection = 0;
     var posts = Posts.find().fetch();
     for (i = 0; i < posts.length; i++) { 
-      collection += posts[i].Donations;
+      collection += posts[i].Donations; 
     };
     return collection;
 
@@ -24,7 +24,6 @@ Template.logo.onRendered(function  () {
 
   $('.total-counter').each(function () {
       $(this).prop('Counter',0).animate({
-          // debugger
           Counter: $(this).text()
       }, {
           duration: 4000,
