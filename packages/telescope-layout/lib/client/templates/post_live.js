@@ -4,7 +4,7 @@ if (Meteor.isClient) {
           Session.set("roomname", this.title);
           var anyChat = (chatRooms.find({roomname: this.title}).count() > 0)
           if (Meteor.userId() === this.userId && !anyChat) {
-           Meteor.call("newChatRoom", {roomname: this.title});
+           Meteor.call("newChatRoom", {roomname: this.title, owner: Meteor.user().profile.name});
          }
     }
   }

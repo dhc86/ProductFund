@@ -34,6 +34,11 @@ if (Meteor.isClient) {
         chat_users: function() {
             // will later only return users for the current room
             return chatUsers.find({roomname: Session.get("roomname")}, {sort: {time: 1}});
+        },
+        is_the_owner: function() {
+            var roomname = Session.get("roomname");
+            var owner = chatRooms.findOne({roomname: roomname}).owner;
+            return this.name === owner;
         }
     });
 
@@ -74,6 +79,7 @@ if (Meteor.isClient) {
                 //initialize chat user for the user list
                 if (chatUsers.find({name: name}).count() === 0) {
                     var time = (new Date()).getTime();
+
                     Meteor.call("newChatUser", {
                         name: name,
                         public_id: name,

@@ -49,6 +49,7 @@ Package.onUse(function (api) {
     'lib/client/templates/post_live.html',
     'lib/client/templates/post_description.html',
     'lib/client/templates/post_live.js',
+    'lib/client/templates/post_tagline.html',
 
     // 'lib/client/templates/total_donation.html',
 
