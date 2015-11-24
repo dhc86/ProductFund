@@ -1,6 +1,6 @@
 if (Meteor.isServer) {
   Meteor.methods({
-   'chargeTheCard': function(stripeToken, input_donation,productName,productAuthorID,productID) {
+   'chargeTheCard': function(stripeToken, input_donation,productName,productAuthorID,productID ) {
       check(stripeToken, String);
       var stripe_account_info = Users._collection.findOne({'_id': productAuthorID});
       var stripe_user_id= stripe_account_info.Stripe_user_id;
@@ -15,8 +15,11 @@ if (Meteor.isServer) {
         metadata: {"product name": productName}
       }, Meteor.bindEnvironment(function(err, charge) {
         Posts.update(productID, {$inc: {Donations: charge.amount/100} });
-        // console.log('charge amount', charge.amount/100,
-        //              'product id', productID )    
+
+        //$dom.trigger("donation:success")
+        console.log('charge amount', charge.amount/100,
+                     'product id', productID )    
+
       }));
     }    
   });  
