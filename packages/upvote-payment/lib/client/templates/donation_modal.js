@@ -7,6 +7,7 @@ if (Meteor.isClient) {
       var productName = this.title;
       var productID= this._id;
       var productAuthorID= this.userId;
+      debugger
       StripeCheckout.open({
         key: 'pk_test_GpmbjLyT5iOAfAPK7zT7DkF1', // should be our platform's PK.
         amount: input_donation * 100, // this is equivalent to donationAmount
