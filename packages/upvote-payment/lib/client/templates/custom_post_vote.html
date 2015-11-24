@@ -1,10 +1,16 @@
 <template name="custom_post_vote">
   <div class="post-vote {{moduleClass}}">
     <div class="vote-actions {{actionsClass}}">
-      <a class="vote-action upvote-link"  href="#" title="{{_ "upvote_"}}">
-        {{{icon "upvote"}}}
-        <span class="sr-only">{{_ "upvote_"}}</span>
-      </a>
+      <div>
+        <img src="https://s3.amazonaws.com/xtechfiles-us/uploads/redactor/1507240907/flat_icon_credit_card.png" height="42" width= "42" class="upvote-link" />
+      </div>
+      <!--class="vote-action upvote-link"-->
+      <!-- <button class= href="#" title="{{_ "upvote_"}}"
+      data-image ='"https://s3.amazonaws.com/xtechfiles-us/uploads/redactor/1507240907/flat_icon_credit_card.png"'>  -->
+       <!--  <img href =  /> -->
+       <!--  {{{icon "upvote"}}} -->
+        <!--  <span class="sr-only">{{_ "upvote_"}}</span>  -->
+      <!-- </button> -->
       {{>donationModal}}  
       {{#if enableDownvotes}}
         <a class="vote-action downvote-link" href="#" title="{{_ "downvote_"}}">
