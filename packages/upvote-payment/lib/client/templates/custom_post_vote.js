@@ -2,6 +2,7 @@ if (Meteor.isClient){
   Template.post_vote.events({
     "click .donation-link": function(e, t){
       var $donationModal = t.$('[data-modal=donationModal]');
+      // debugger
       $donationModal.modal("show");
       e.preventDefault();
     }
@@ -11,7 +12,8 @@ if (Meteor.isClient){
     var user = Meteor.user();
     var $donationModal = this.$('[data-modal=donationModal]'); 
 
-    $donationModal.on("donation:success", function(error, payload){
+    $donationModal.on("donation:success", function success(error, payload){
+      console.log('payload', payload);
       $('.total-counter').each(function () {
       $(this).prop('Counter',0).animate({
         Counter: $(this).text()
@@ -22,7 +24,20 @@ if (Meteor.isClient){
             $(this).text(Math.ceil(now));
           }
         });   
-      });
-    });
+      });     
+    });      
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
