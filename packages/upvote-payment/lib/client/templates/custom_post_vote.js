@@ -9,6 +9,6 @@ if (Meteor.isClient){
   Template.post_vote.rendered = function(){
     var post = this.data;
     var user = Meteor.user();
-    var $donationModal = this.$('[data-modal=donationModal]'); 
+    var $donationModal = this.$('[data-modal=donationModal]')
   }
 }

@@ -11,6 +11,7 @@ Template.logo.helpers({
       // debugger;
       collection += posts[i].Donations; 
     };
+    //alert(collection);
     return collection;
 
   }
@@ -27,8 +28,12 @@ Template.logo.onRendered(function  () {
 //Once the a new donation goes through, the counter updates.
 
   $('.total-counter').each(function () {
+
+      $(this).text(now);
       $(this).prop('Counter',0).animate({
+          
           Counter: $(this).text()
+
       }, {
           duration: 4000,
           easing: 'swing',
