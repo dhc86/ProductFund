@@ -2,8 +2,9 @@ if (Meteor.isClient){
   Template.post_vote.events({
     "click .donation-link": function(e, t){
       var $donationModal = t.$('[data-modal=donationModal]');
-      // debugger
+
       $donationModal.modal("show");
+
       e.preventDefault();
     }
   });
@@ -11,6 +12,10 @@ if (Meteor.isClient){
     var post = this.data;
     var user = Meteor.user();
     var $donationModal = this.$('[data-modal=donationModal]'); 
+
+    $donationModal.on("shown.bs.modal", function () {
+      $donationModal.find('[data-content="donationAmount"]').focus();
+    });
 
     $donationModal.on("donation:success", function success(error, payload){
       console.log('payload', payload);

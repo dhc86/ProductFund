@@ -1,7 +1,8 @@
 if (Meteor.isClient) {
   Template.donationModal.events({
+
     'click [data-action=confirm]': function(e, t){
-      var $dom = t.$('[data-modal=donationModal]');
+      var $dom = t.$('[data-modal=donationModal]'); 
       e.preventDefault(); 
       var input_donation = $dom.find('[data-content=donationAmount]').val();
       var productName = this.title;
@@ -17,8 +18,7 @@ if (Meteor.isClient) {
         token: function(res) { 
           stripeToken = res.id;
           Meteor.call('chargeTheCard', stripeToken, input_donation,
-            productName, productAuthorID, productID, function(error, result){ 
-             
+            productName, productAuthorID, productID, function(error, result){  
               if (Meteor.user()) {
                 var user_name = Meteor.user().username;   
                 var donation_show_message ={"room": productName, "name": "Fundbot", "chat_message": "Thank you" + " " + user_name +" for donating $" + input_donation};
@@ -28,8 +28,6 @@ if (Meteor.isClient) {
                 var donation_show_message ={"room": productName, "name": "Fundbot", "chat_message": "Thank you for the anonymous donation of $" + input_donation};
                 Meteor.call("newChatMessage", donation_show_message) 
               }
-            
-              console.log('donation thank you msg', donation_show_message)
            });
         }
       });
