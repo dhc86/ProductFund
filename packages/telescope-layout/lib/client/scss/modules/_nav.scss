@@ -8,15 +8,18 @@
         box-shadow: 0 1px 1px rgba(0,0,0,0.1);
         margin-bottom: 12px;
         overflow: hidden;
+        background-color: #670858;
         .primary-nav {
             text-transform: capitalize;
             letter-spacing: 0.8px;
             font-size: 13px;
+            align-self: flex-end;
         }
         .secondary-nav {
             text-transform: capitalize;
             letter-spacing: 0.8px;
             font-size: 13px;
+            align-self: flex-end;
             .btn.btn-primary, .btn.submit {
                 background: transparent;
                 padding: 15px 0px;
@@ -40,66 +43,53 @@
             a {
                 color: white;
             }
-            .total-donation {
-                font-size: 10px;
-                .total-counter {
-                    background-color: transparent;
+            .total-counter {
+                font-size: 30px;
+                // background-color: #7D9C9F;
+                // width: 80px;
+                // height: 80px;
+                // border-radius: 50%;
+                // line-height: 80px;
+                // text-align: center;
+                // font-weight: bold;
+                // letter-spacing: 2px;
+                // margin: 5px;
+                // float: left;
+            }
+            .logo-text {
+                font-size: 150px;
+                @include medium {
+                font-size: 90px;
+                }
+                @include small {
+                font-size: 25px;
+                }
+                font-family: Open-Sans;
+                a{
+                  text-decoration: none;
+                  &, &:link, &:visited, &:active{
+                    color: currentColor;
+                    font-weight: 50;
+                  }
+                  &:hover{
+                    text-decoration: none;
+                  }
                 }
             }
         }
     }
 }
 
-.general-chat {
-    position: absolute;
-    right: 10px;
-    bottom: 5px;
-    // background-color: green;
-    display: block;
-    height: 20px;
-    width: 100px;
-    // background: #34696f;
-    // border: 2px solid rgba(33, 68, 72, 0.59);
-    text-align: center;
-      background: #3498db;
-      background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-      background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-      background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-      background-image: -o-linear-gradient(top, #3498db, #2980b9);
-      background-image: linear-gradient(to bottom, #3498db, #2980b9);
-      -webkit-border-radius: 28;
-      -moz-border-radius: 28;
-      border-radius: 28px;
-      font-family: Arial;
-      color: #ffffff;
-      font-size: 20px;
-      padding: 10px 20px 10px 20px;
-      text-decoration: none;
-}
-
-a.general-chat:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
 
 video {
     z-index: -1;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    // display: block;
-    // margin-left: auto;
-    // margin-right: auto;
-    // align-items: center;
-    // display: flex;
-    // justify-content: center;
-    // flex-grow: 1;
-    opacity: .4;
+    top: -100px;
+    // left: 0;
+    width: 90%; 
     // height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .5;
 }

@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 
     Template.chat_page.helpers({
         chat_product: function() {
-            return Posts.findOne({});
+            return Posts.findOne({title: Session.get("roomname")});
         }
     })
 
