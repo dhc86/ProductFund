@@ -6,9 +6,6 @@ if (Meteor.isClient) {
     Meteor.subscribe("posts");
     Meteor.subscribe("comments");
 
-    if (!Session.get("roomname")) {
-        Session.setDefault("roomname", "General");
-    }
 
     Template.chat_page.helpers({
         chat_product: function() {
@@ -37,8 +34,11 @@ if (Meteor.isClient) {
         },
         is_the_owner: function() {
             var roomname = Session.get("roomname");
-            var owner = chatRooms.findOne({roomname: roomname}).owner;
-            return this.name === owner;
+            var chatroom = chatRooms.findOne({roomname: roomname})
+            if (chatroom) {
+                var owner = chatroom.owner;
+                return (this.name === owner);
+            }
         }
     });
 
@@ -86,10 +86,22 @@ if (Meteor.isClient) {
                         time: time,
                         roomname: Session.get("roomname")});
                 }
+                else {
+                    chatUsers.update(
+                        {public_id: name},
+                        {$set: {roomname: Session.get("roomname")}}
+                    );
+                }
 
                 Template.chat_messages.helpers({
                     update_scroll: scroll_down
                 });
+
+                // sets default to general late in the code
+                if (!Session.get("roomname")) {
+                    Session.setDefault("roomname", "General");
+                }
+
                 var room_name = Session.get("roomname");
                 var room_select = chatRooms.findOne({roomname: room_name})._id
                 $('.room-select input[value=' + room_select + ']')
