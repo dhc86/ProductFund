@@ -1,4 +1,9 @@
 if (Meteor.isClient) {
+
+    if (!Session.get("roomname")) {
+        Session.setDefault("roomname", "General");
+    }
+
     Meteor.subscribe("chat_messages");
     Meteor.subscribe("chat_rooms");
     Meteor.subscribe("chat_users");
@@ -86,23 +91,18 @@ if (Meteor.isClient) {
                         time: time,
                         roomname: Session.get("roomname")});
                 }
-                else {
-                    chatUsers.update(
-                        {public_id: name},
-                        {$set: {roomname: Session.get("roomname")}}
-                    );
-                }
+                else Meteor.call("changeRoom", name, Session.get("roomname"))
 
                 Template.chat_messages.helpers({
                     update_scroll: scroll_down
                 });
 
                 // sets default to general late in the code
-                if (!Session.get("roomname")) {
-                    Session.setDefault("roomname", "General");
-                }
 
+            }, 1);
+            setTimeout(function() {
                 var room_name = Session.get("roomname");
+                if (!room_name) room_name = "General";
                 var room_select = chatRooms.findOne({roomname: room_name})._id
                 $('.room-select input[value=' + room_select + ']')
                 .parent()
@@ -145,14 +145,11 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 
     Meteor.startup(function () {
-        chatMessages.remove({});
-        chatRooms.remove({});
-        chatUsers.remove({});
-        var chat_room_data = {roomname: "General"}
-        Meteor.call("newChatRoom", chat_room_data);
-        chat_room_data = {roomname: "Random"}
-        Meteor.call("newChatRoom", chat_room_data);
-
+           chatMessages.remove({});
+           chatRooms.remove({});
+           chatUsers.remove({});
+           //var chat_room_data = {roomname: "General"}
+           //Meteor.call("newChatRoom", chat_room_data);
         Meteor.settings.public.extraEmoticons = [
             {
                 "image": "/packages/telescope-custom-chat/lib/client/assets/emoticon-don.png",
