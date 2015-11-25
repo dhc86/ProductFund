@@ -44,6 +44,7 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_logo.html',
     'lib/client/templates/custom_logo.js',
     'lib/client/templates/custom_post_info.html',
+    'lib/client/templates/custom_footer_code.html',
 
     // new templates
     'lib/client/templates/post_live.html',

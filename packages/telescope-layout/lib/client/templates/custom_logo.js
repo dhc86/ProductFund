@@ -5,28 +5,32 @@ Template.logo.helpers({
   
   // Add total counter
   totalDonation: function() {
+    var initial = $('span.total-counter').text();
+    if (!intial) intial = 0;
+    console.log(initial);
     $('span.total-counter').text('');
     var collection = 0;
     var posts = Posts.find().fetch();
 
     for (i = 0; i < posts.length; i++) { 
       collection += posts[i].Donations; 
-    };
+    }
 
+    // Animate the counter incrementaly
     setTimeout(function() {
 
       $('.total-counter').each(function () {
-      $(this).prop('Counter',0).animate({
-          Counter: collection
-      }, {
-          duration: 4000,
-          easing: 'swing',
-          step: function (now) {
-            $(this).text(Math.ceil(now));
-          }
-      });
+        $(this).prop('Counter',initial).animate({
+            Counter: collection
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            }
+        });
 
-  });
+       });
 
     }, 1);
 
@@ -40,6 +44,4 @@ Template.logo.onRendered(function  () {
     max: 40,
     truncate: false
   });
-});  
-
-
+}); 

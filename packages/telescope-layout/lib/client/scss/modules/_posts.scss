@@ -44,7 +44,7 @@
     // margin-top: 20px;
   }
   .post-title {
-    color: #AD235E;
+    color: black;
     font-weight: 300;
     font-size: 15px;
     font-family: Open-Sans;
@@ -60,7 +60,7 @@
       line-height: 1;
     }
     &:visited {
-      color: #AD235E;
+      color: black;
     }
   }
 }
@@ -70,9 +70,10 @@
   right: 10px;
 }
 
+// Add shade and border around view
 .zone-wrapper.postsListTop {
-  border: solid 1px #AD235E;
-  -webkit-box-shadow: inset 0 2em 3em -1em #AD235E;
+  border: solid 1px #6A6A5A;
+  -webkit-box-shadow: inset 0 2em 3em -1em #6A6A5A;
 
 }
 
@@ -92,6 +93,14 @@
         line-height: 1.6;
     }
 }
+
+// .tagline {
+//   a{
+//     &:hover {
+//       text-decoration: none;
+//     }
+//   }
+// }
 
 
 
