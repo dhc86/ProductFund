@@ -28,7 +28,7 @@ if (Meteor.isClient) {
             var chatroom = chatRooms.findOne({roomname: roomname})
             if (chatroom) {
                 var owner = chatroom.owner;
-                return (this.name === owner);
+                return (this.name === owner || this.name === "Fundbot");
             }
         }
     });
