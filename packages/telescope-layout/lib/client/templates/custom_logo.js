@@ -6,9 +6,9 @@ Template.logo.helpers({
   // Add total counter
   totalDonation: function() {
     var initial = $('span.total-counter').text();
-    if (!intial) intial = 0;
+    if (!initial) initial = 0;
     console.log(initial);
-    $('span.total-counter').text('');
+    //$('span.total-counter').text('');
     var collection = 0;
     var posts = Posts.find().fetch();
 
@@ -18,7 +18,6 @@ Template.logo.helpers({
 
     // Animate the counter incrementaly
     setTimeout(function() {
-
       $('.total-counter').each(function () {
         $(this).prop('Counter',initial).animate({
             Counter: collection
@@ -31,10 +30,10 @@ Template.logo.helpers({
         });
 
        });
-
     }, 1);
-
-    return collection;
+    setTimeout(function() {
+       return collection;
+    }, 1);
   }
 });
 

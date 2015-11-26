@@ -71,10 +71,14 @@
 }
 
 // Add shade and border around view
-.zone-wrapper.postsListTop {
-  border: solid 1px #6A6A5A;
-  -webkit-box-shadow: inset 0 2em 3em -1em #6A6A5A;
+// .zone-wrapper.postsListTop {
+  // border: solid 1px #6A6A5A;
+  // -webkit-box-shadow: inset 0 3em 2em -1em #9CAAC6;
 
+// }
+.views-menu-wrapper.postsListTop-module {
+  color: #5a79a5;
+  background-color: #dee7ef;
 }
 
 .post-body, .page-body {
