@@ -151,9 +151,9 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 
     Meteor.startup(function () {
-        chatMessages.remove({});
-        chatRooms.remove({});
-        chatUsers.remove({});
+        // chatMessages.remove({});
+        // chatRooms.remove({});
+        // chatUsers.remove({});
         //var chat_room_data = {roomname: "General"}
         //Meteor.call("newChatRoom", chat_room_data);
         Meteor.settings.public.extraEmoticons = [
