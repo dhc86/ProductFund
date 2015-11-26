@@ -11,7 +11,7 @@ if (Meteor.isServer) {
             return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
         };
 
-        var createPost = function (slug, postedAt, username, thumbnail, short_description, donations) {
+        var createPost = function (slug, postedAt, username, thumbnail, short_description, donations, source) {
             var post = {
                 postedAt: postedAt,
                 body: Assets.getText("content/" + slug + ".md"),
@@ -20,7 +20,8 @@ if (Meteor.isServer) {
                 isDummy: true,
                 userId: Meteor.users.findOne({username: username})._id,
                 short_description: short_description,
-                Donations: donations
+                Donations: donations,
+                url: source
             };
 
             if (typeof thumbnail !== "undefined")
@@ -28,8 +29,6 @@ if (Meteor.isServer) {
 
             Posts.submit(post);
         };
-
-
 
         createPost("save_toby", moment().toDate(), "holly-jolly", "toby1.jpg", "This bunny is in desperate need of YOUR help! Find out how your donations can save his life!", 45939);
         createPost("product_fund", moment().toDate(), "holly-jolly", "product_fund.png", "Product Fund is a site that revolves around instant gratification, bridging potential benefactors and causes with a single button", 5);

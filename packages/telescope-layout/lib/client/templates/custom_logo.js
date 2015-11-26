@@ -7,7 +7,6 @@ Template.logo.helpers({
   totalDonation: function() {
     var initial = $('span.total-counter').text();
     if (!initial) initial = 0;
-    console.log(initial);
     //$('span.total-counter').text('');
     var collection = 0;
     var posts = Posts.find().fetch();
