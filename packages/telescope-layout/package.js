@@ -59,7 +59,7 @@ Package.onUse(function (api) {
   ], ['client']);
 
     api.addAssets([
-    'public/videos/pitch.mp4',
+    'public/videos/Diego.webm',
     // 'public/img/placeholderDon.png',
     'public/img/telescope.png'
   ], ['client']);
