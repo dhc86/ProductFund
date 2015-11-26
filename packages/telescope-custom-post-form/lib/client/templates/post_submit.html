@@ -9,7 +9,7 @@
     {{#if equals "Stripe Plataform Member" currentUser.stripe_plataform_member}}
       <p style="color:green"><b>You are already register! Please proceed to next step.</b></p>
     {{else}}
-      <a href="https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&amp;scope=read_write"><button type="button" class="btn btn-primary" >Register to Stripe</button></a>
+      <a href="https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&amp;scope=read_write"><button type="button" class="btn btn-info" >Register to Stripe</button></a>
     {{/if}}
 
     <p>Note: We do not keep any of your financial information with Stripe.</p>
@@ -33,13 +33,13 @@
     {{else}}
       <div>
         <p>3) There is a $10 charge to post your product.</p>
-        <button id="special-stripe-button" type="button" class="btn btn-primary">Proceed Payment</button>
+        <button id="special-stripe-button" type="button" class="btn btn-info">Proceed Payment</button>
       </div>
     {{/if}}
     <div>
       <h3>After Payment is approved you can post your product and let the world know about your idea!, Don't forget to promote your products in the <b>chat room!</b> </h3>
       {{#if equals "Paid entry fee" currentUser.Post_entry_fee}}
-        <button type="method" id="post_product_button" meteormethod="submitPost" class="btn btn-primary">Post my Product</button>
+        <button type="method" id="post_product_button" meteormethod="submitPost" class="btn btn-info">Post my Product</button>
       {{/if}}
     </div>
 

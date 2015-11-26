@@ -30,6 +30,7 @@ if (Meteor.isServer) {
         };
 
 
+
         createPost("save_toby", moment().toDate(), "holly-jolly", "toby1.jpg", "This bunny is in desperate need of YOUR help! Find out how your donations can save his life!", 45939);
         createPost("product_fund", moment().toDate(), "holly-jolly", "product_fund.png", "Product Fund is a site that revolves around instant gratification, bridging potential benefactors and causes with a single button", 5);
         createPost("zano_drone", moment().toDate(), "holly-jolly", "ZANO-Nano-Drone.jpg", "Autonomous, Intelligent, Developable. Meet ZANO the world's most sophisticated nano drone - aerial photo and HD video capture platform.", 967);
@@ -41,6 +42,7 @@ if (Meteor.isServer) {
         chat_room_data = {roomname: "Product Fund", owner: "holly-jolly"}
         Meteor.call("newChatRoom", chat_room_data);
         chat_room_data = {roomname: "Save Toby", owner: "holly-jolly"}
+
         Meteor.call("newChatRoom", chat_room_data);
     });
 }
