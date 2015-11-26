@@ -28,8 +28,10 @@ Posts.views.baseParameters = {
 /**
  * Top view
  */
-
- // NOte: This was changed to donations from upvotes. 
+ //+==============================================================
+// please make sure you are aware of this:
+ // This was changed to donations from upvotes. 
+ //+==============================================================
 Posts.views.add("top", function (terms) {
   return {
     options: {sort: {sticky: -1, Donations: -1}}
