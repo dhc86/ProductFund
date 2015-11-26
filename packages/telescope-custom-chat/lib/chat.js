@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 
     if (!Session.get("roomname")) {
-        Session.setDefault("roomname", "General");
+        Session.set("roomname", "Product Fund");
     }
 
     Meteor.subscribe("chat_messages");
@@ -22,6 +22,14 @@ if (Meteor.isClient) {
         chat_messages: function() {
             // will later only return chatmessages for the current room
             return chatMessages.find({room: Session.get("roomname")});
+        },
+        sender_is_the_owner: function() {
+            var roomname = Session.get("roomname");
+            var chatroom = chatRooms.findOne({roomname: roomname})
+            if (chatroom) {
+                var owner = chatroom.owner;
+                return (this.name === owner);
+            }
         }
     });
 
@@ -76,6 +84,12 @@ if (Meteor.isClient) {
         //this interval carries over to other parts of website. unsure how to stop
         Meteor.setInterval(function() {
             scroll_down();
+                var room_name = Session.get("roomname");
+                if (!room_name) room_name = "Product Fund";
+                var room_select = chatRooms.findOne({roomname: room_name})._id
+                $('.room-select input[value=' + room_select + ']')
+                .parent()
+                .addClass('active');
         }, 500);
 
         Tracker.afterFlush(function() {
@@ -93,20 +107,12 @@ if (Meteor.isClient) {
                 }
                 else Meteor.call("changeRoom", name, Session.get("roomname"))
 
-                Template.chat_messages.helpers({
-                    update_scroll: scroll_down
-                });
+                    Template.chat_messages.helpers({
+                        update_scroll: scroll_down
+                    });
 
-                // sets default to general late in the code
+                    // sets default to general late in the code
 
-            }, 1);
-            setTimeout(function() {
-                var room_name = Session.get("roomname");
-                if (!room_name) room_name = "General";
-                var room_select = chatRooms.findOne({roomname: room_name})._id
-                $('.room-select input[value=' + room_select + ']')
-                .parent()
-                .addClass('active');
             }, 1);
         });
     };
@@ -145,11 +151,11 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 
     Meteor.startup(function () {
-           chatMessages.remove({});
-           chatRooms.remove({});
-           chatUsers.remove({});
-           //var chat_room_data = {roomname: "General"}
-           //Meteor.call("newChatRoom", chat_room_data);
+        chatMessages.remove({});
+        chatRooms.remove({});
+        chatUsers.remove({});
+        //var chat_room_data = {roomname: "General"}
+        //Meteor.call("newChatRoom", chat_room_data);
         Meteor.settings.public.extraEmoticons = [
             {
                 "image": "/packages/telescope-custom-chat/lib/client/assets/emoticon-don.png",
@@ -201,7 +207,7 @@ if (Meteor.isServer) {
         .forEach(function (user) {
             chatUsers._collection.remove({_id: user._id});
         });
-    }, 10000);
+    }, 20000);
 }
 
 Meteor.methods({

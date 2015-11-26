@@ -1,5 +1,9 @@
 <template name="chat_messages">
 {{#each chat_messages}}
-<strong>{{name}}:</strong> {{{parseEmoticons chat_message}}}<br>
+    {{#if sender_is_the_owner}}
+        <strong class="owner">{{name}}:</strong> {{{parseEmoticons chat_message}}}<br>
+    {{else}}
+        <strong>{{name}}:</strong> {{{parseEmoticons chat_message}}}<br>
+    {{/if}}
 {{/each}}
 </template>
