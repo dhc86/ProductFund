@@ -8,15 +8,19 @@
         box-shadow: 0 1px 1px rgba(0,0,0,0.1);
         margin-bottom: 12px;
         overflow: hidden;
+        background-color: #000066;
+        // #670858;
         .primary-nav {
             text-transform: capitalize;
             letter-spacing: 0.8px;
             font-size: 13px;
+            align-self: flex-start;
         }
         .secondary-nav {
             text-transform: capitalize;
             letter-spacing: 0.8px;
             font-size: 13px;
+            align-self: flex-start;
             .btn.btn-primary, .btn.submit {
                 background: transparent;
                 padding: 15px 0px;
@@ -40,22 +44,54 @@
             a {
                 color: white;
             }
-            .total-donation {
-                font-size: 10px;
-                .total-counter {
-                    background-color: transparent;
+            .total-counter {
+                // background-color: #7D9C9F;
+                // width: 80px;
+                // height: 80px;
+                // border-radius: 50%;
+                // line-height: 80px;
+                // text-align: center;
+                // font-weight: bold;
+                letter-spacing: 5px;
+                // margin: 5px;
+                // float: left;
+            }
+            .logo-text {
+                font-size: 150px;
+                @include medium {
+                font-size: 90px;
+                }
+                @include small {
+                font-size: 25px;
+                }
+                font-family: Open-Sans;
+                a{
+                  text-decoration: none;
+                  &, &:link, &:visited, &:active{
+                    color: currentColor;
+                    font-weight: 50;
+                  }
+                  &:hover{
+                    text-decoration: none;
+                  }
                 }
             }
         }
     }
 }
-
+.total-counter-wrapper {
+    font-size: 60px;
+}
 
 video {
     z-index: -1;
     position: absolute;
-    top: 0;
+    top: -150px;
     left: 0;
-    width: 100%;
+    width: 100%; 
     // height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .5;
 }

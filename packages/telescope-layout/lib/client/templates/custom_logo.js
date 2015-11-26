@@ -5,13 +5,35 @@ Template.logo.helpers({
   
   // Add total counter
   totalDonation: function() {
+    var initial = $('span.total-counter').text();
+    if (!initial) initial = 0;
+    console.log(initial);
+    //$('span.total-counter').text('');
     var collection = 0;
     var posts = Posts.find().fetch();
+
     for (i = 0; i < posts.length; i++) { 
       collection += posts[i].Donations; 
-    };
-    return collection;
+    }
 
+    // Animate the counter incrementaly
+    setTimeout(function() {
+      $('.total-counter').each(function () {
+        $(this).prop('Counter',initial).animate({
+            Counter: collection
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            }
+        });
+
+       });
+    }, 1);
+    setTimeout(function() {
+       return collection;
+    }, 1);
   }
 });
 
@@ -21,22 +43,4 @@ Template.logo.onRendered(function  () {
     max: 40,
     truncate: false
   });
-
-//Henry's version, and is moved as a callback function to the custom_post_vote.js.
-//Once the a new donation goes through, the counter updates.
-
-  // $('.total-counter').each(function () {
-  //     $(this).prop('Counter',0).animate({
-  //         Counter: $(this).text()
-  //     }, {
-  //         duration: 4000,
-  //         easing: 'swing',
-  //         step: function (now) {
-  //           $(this).text(Math.ceil(now));
-
-  //         }
-  //     });
-  // });
-  
-});
-
+}); 

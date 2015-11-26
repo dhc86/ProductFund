@@ -1,0 +1,9 @@
+<template name="custom_footer_code">
+  <div class="footer-code {{moduleClass}}">
+    {{#if footerCode}}
+      {{#markdown}}{{footerCode}}{{/markdown}}
+    {{else}}
+      <a href="http://telescopeapp.org" target="_blank"></a>
+    {{/if}}
+  </div>
+</template>
