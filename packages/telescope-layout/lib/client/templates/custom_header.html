@@ -1,6 +1,7 @@
 <template name="custom_header">
   <header class="header {{headerClass}}">
-    <video autoplay="autoplay" loop muted><source src="/packages/telescope-layout/public/videos/test.mp4" type="video/mp4"></video>
+    <!-- plays video in the header -->
+    <video autoplay="autoplay" loop muted><source src="/packages/telescope-layout/public/videos/Diego.webm" type="video/webm"></video>
 
     <a href="#menu" class="mobile-only mobile-menu-button button">
       {{{icon "menu"}}}
@@ -18,6 +19,10 @@
     {{#if hasSecondaryNav}}
       {{> modules zone="secondaryNav" zoneClass="nav secondary-nav desktop-nav header-module desktop-only" moduleClass="header-submodule"}}
     {{/if}}
+  <!--     <a class="general-chat" href="/chat">Join Chat</a> -->
+
 
   </header>
 </template>
+
+ <!-- <source src="/packages/telescope-layout/public/videos/test.mp4" type="video/mp4"> -->

@@ -15,21 +15,6 @@ if (Meteor.isClient){
 
     $donationModal.on("shown.bs.modal", function () {
       $donationModal.find('[data-content="donationAmount"]').focus();
-    });
-
-    $donationModal.on("donation:success", function success(error, payload){
-      console.log('payload', payload);
-      $('.total-counter').each(function () {
-      $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-        }, {
-          duration: 4000,
-          easing: 'swing',
-          step: function (now) {
-            $(this).text(Math.ceil(now));
-          }
-        });   
-      });     
     });      
   }
 }

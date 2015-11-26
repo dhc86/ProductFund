@@ -1,8 +1,3 @@
-
-// secret key:    sk_test_G77gaaVCcCaEFTccvZx04IFC  --> keep in server side
-// publishable key:   pk_test_GpmbjLyT5iOAfAPK7zT7DkF1  --> keep in client side  
-// href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7NQ3TnZveKPdFms4tlzUx5wswjPDubGN&scope=read_write
-
 if(Meteor.isServer){               
   Meteor.methods({
     fetchFromService: function(authentication_key) {

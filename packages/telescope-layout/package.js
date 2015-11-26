@@ -44,6 +44,7 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_logo.html',
     'lib/client/templates/custom_logo.js',
     'lib/client/templates/custom_post_info.html',
+    'lib/client/templates/custom_footer_code.html',
 
     // new templates
     'lib/client/templates/post_live.html',
@@ -58,8 +59,8 @@ Package.onUse(function (api) {
   ], ['client']);
 
     api.addAssets([
-    'public/videos/test.mp4',
-    'public/img/placeholderDon.png',
+    'public/videos/Diego.webm',
+    // 'public/img/placeholderDon.png',
     'public/img/telescope.png'
   ], ['client']);
 });

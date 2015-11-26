@@ -14,7 +14,7 @@ if (Meteor.isServer) {
         destination: stripe_user_id,
         metadata: {"product name": productName}
       }, Meteor.bindEnvironment(function(err, charge) {
-        Posts.update(productID, {$inc: {Donations: charge.amount/100} });  
+        Posts.update(productID, {$inc: {Donations: charge.amount/100} });
       }));
     }    
   });  

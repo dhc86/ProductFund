@@ -1,0 +1,6 @@
+Toby is the cutest little bunny on the planet. Unfortunately, he will DIE on November 27th, 2015 if you don't help. 
+
+I rescued him several months ago. I found him under my porch, soaking wet, injured from what appeared to be an attack from an alley cat. I took him in, thinking he had no chance to live from his injuries, but miraculously, he recovered. I have since spent several months nursing him to health. Toby is a fighter, that's for sure.
+Unfortunately, on November 27th, 2015, Toby will die. I am going to eat him. I am going to take Toby to a butcher to have him slaughter this cute bunny. I will then prepare Toby for a midsummer feast. I have several recipes under consideration, which can be seen, with some pretty graphic images, under the recipe section.
+
+I don't want to eat Toby, he is my friend, and he has always been the most loving, adorable pet. However, God as my witness, I will devour this little guy unless I receive 50,000$ USD into my account from donations or purchase of merchandise. You can help this poor, helpless bunny's cause by making donations through my verified Stripe account by clicking on any of the Donate buttons on this site, or by purchasing merchandise at the Savetoby.com online store.
